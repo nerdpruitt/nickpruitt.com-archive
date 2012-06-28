@@ -1,0 +1,35 @@
+---
+layout: page
+title: Nick Pruitt, Your New Friend
+---
+
+{% assign posts = paginator.posts %}
+
+{% for post in posts limit: listing_limit %}
+    <article class="{{ post.category }} group">        
+        <footer class="meta group">
+            <time datetime="2011-10-14" pubdate>{{ post.date | date: "%m.%d.%Y" }}</time>       
+        </footer>
+        {% if post.category == 'link' %}            
+            <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
+        {% else %}
+            <h1><a href="{{ BASE_PATH }}{{ post.url }}#main">{{ post.title }}</a></h1>
+        {% endif %}        
+        {{ post.content }}
+
+        <h3 class="filed">Sensibly Filed In:</h3>
+        <ul class="tags">
+        {% for tag in post.tags %}
+            <li><a href="/tags/{{ tag }}">{{ tag }}</a></li>
+        {% endfor %}
+        </ul>
+    </article>    
+{% endfor %}
+
+{% if paginator.previous_page %}
+<a href="{%if paginator.previous_page == 1 %} / {% else %} /page{{ paginator.previous_page }} {% endif %}"  class="pagination">Previous Page</a>
+{% endif %}
+
+{% if paginator.next_page %}            
+    <a href="/page{{ paginator.next_page }}" class="pagination">Next Page</a>
+{% endif %}

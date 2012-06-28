@@ -1,0 +1,36 @@
+@mixin hyphens {
+ -webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	     hyphens: auto;
+}
+
+@mixin transform-origin($side) {
+       -moz-transform-origin:$side;
+	-webkit-transform-origin:$side;
+	        transform-origin:$side;
+}
+
+@mixin transform-rotate($degrees) {
+	   -moz-transform:rotate($degrees);
+	-webkit-transform:rotate($degrees);
+	        transform:rotate($degrees);
+}
+
+@mixin transform($value) {
+	   -moz-transform:$value;
+	-webkit-transform:$value;
+	        transform:$value;
+}
+
+// Transitions
+@mixin transition($transition) {
+	   -moz-transition: $transition;
+	-webkit-transition: $transition;	   
+	        transition: $transition;
+}
+
+@mixin box-sizing($box: border-box) {
+	   -moz-box-sizing: $box;
+	-webkit-box-sizing: $box;
+	        box-sizing: $box;
+}

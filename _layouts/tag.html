@@ -1,0 +1,6 @@
+---
+layout: page
+---
+<h1 class="filed">Hey! It's stuff sensibly filed in <strong>{{ page.tag }}!</strong></h3>
+{% assign posts = site.tags[page.tag] %}
+{% include post-listing.html %}
