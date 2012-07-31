@@ -1,0 +1,200 @@
+---
+---
+
+// http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain)
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+
+// make new blocky elements blocky
+article, aside, dialog, figure, footer, header, hgroup, nav, section { display : block; }
+
+//----------------------------------------------------
+
+$base-color: #333;
+$light-gray: #999;
+$lighter-gray: #ccc;
+$lightest-gray: #efefef;
+
+$base-font-size: 16;
+$font: "minion-pro", "Times New Roman", Times, serif;
+$font-base-size: 21px;
+$base-line-height: 1.5em;
+
+@mixin font-size($font-size) {
+	font-size: $font-size + px;
+	font-size: ($font-size / $base-font-size) + rem;
+}
+
+@mixin clearfix() {
+	&:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+}
+
+@mixin box-sizing() {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+//----------------------------------------------------
+body {
+	color:$base-color;
+	font-family:$font;
+	@include font-size(16);
+	line-height:$base-line-height;
+	-mox-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens:auto;
+}
+
+.wrapper {
+	margin:0 ($base-line-height / 2) ($base-line-height * 4) ($base-line-height / 2);
+	position:relative;
+	max-width:47.619047619em;
+	@include clearfix;
+}
+
+p.intro::first-line {
+	font-weight:700;
+}
+
+p + p, blockquote + p {
+	text-indent:1.5em;
+}
+
+.chapter-title {
+	@include font-size(21);
+	font-style:italic;
+	font-weight:700;
+	margin-bottom:$base-line-height / 3;
+	margin-top:$base-line-height / 2;
+}
+
+blockquote {
+	font-style:italic;
+	padding:$base-line-height $base-line-height $base-line-height 3%;
+	@include box-sizing;
+}
+
+cite {
+	font-style:italic;
+}
+
+// blockquote {
+// 	float:right;
+// 	width:49.99999954%;
+// 	font-style:italic;
+// 	margin: $base-line-height $base-line-height $base-line-height 3%;
+// 	text-indent:0;
+// }
+
+// blockquote.full {
+// 	margin:$base-line-height;
+// 	width:100%;
+// }
+
+nav {
+	position:relative;
+	margin:($base-line-height / 2) 0 0 0;
+	width:100%;
+}
+
+nav li {
+	list-style:none;
+	display:inline
+}
+
+nav a {
+	color:$lighter-gray;
+	@include font-size(14);
+	font-weight:700;
+	padding:3px 5px;
+	text-decoration:none;
+	&:hover{
+		background:$lightest-gray;
+		color:$light-gray;
+	}
+}
+
+small {
+	color:$light-gray;
+	@include font-size(14);
+	font-style:italic;
+}
+
+@media only screen and (min-width: 408px) {
+	body {
+		@include font-size(21);
+	}
+
+	.chapter-title {
+		@include font-size(36);
+	}
+
+	.wrapper {
+		margin:0 $base-line-height ($base-line-height * 4) $base-line-height;
+	}
+}
+
+@media only screen and (min-width: 705px) {
+	body {
+		@include font-size(21);
+	}
+
+	nav {
+		position:absolute;
+		left:100% - 8.7255924%;
+		margin-top:$base-line-height * 3;
+		width:8.7255924%;
+
+		ol {
+			position:fixed;
+		}
+
+		li {
+			display:block;
+			margin-bottom:$base-line-height / 2;
+		}
+
+		a {
+			display:block;
+			line-height:18px;
+			width:100%;
+		}
+	}
+
+	.wrapper {
+		margin-right:$base-line-height;
+	}
+
+	.chapter-title {
+		margin-bottom:$base-line-height;
+		margin-top:$base-line-height * 2;
+	}
+
+	p {
+		margin-right:17.1183053%;
+ 	}
+}
+
+@media only screen and (min-width: 1023px) {
+	.wrapper {
+		margin-left:auto;
+		margin-right:auto;
+	}
+}
+
+@media only screen and (min-width: 1115px) {
+	nav {
+		left:100%;
+	}
+}
