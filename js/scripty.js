@@ -1,7 +1,7 @@
 var $article = $('article');
 var articleList = $('.article-list').length;
 
-var article_highlight = function(){	
+var article_highlight = function(){
 	$article.waypoint({ offset: '50%' });
 
 	// The same for all waypoints
@@ -15,7 +15,7 @@ var article_highlight = function(){
 
 		$('article:first-child').removeClass('active');
 		$('.active').removeClass('active');
-		$active.addClass('active');				
+		$active.addClass('active');
 	});
 };
 
