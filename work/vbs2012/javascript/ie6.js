@@ -1,0 +1,1 @@
+DD_belatedPNG.fix('#two_options, #plane, .graphic, .logo img, #planet, .sq.biblical #content_wrap, #biblical_content, #footer');

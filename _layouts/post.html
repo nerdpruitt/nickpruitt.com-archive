@@ -3,8 +3,11 @@ layout: post
 ---
 {% include head.html %}
 
-<article class="{{ page.category }} group">	
-	<h1>{{ page.title }}</h1>	
+<article class="{{ page.category }} active group">
+    <footer class="meta group">
+        <time datetime="2011-10-14" pubdate>{{ page.date | date: "%m.%d.%Y" }}</time>
+    </footer>
+	<h1>{{ page.title }}</h1>
 	{{ content }}
 </article>
 

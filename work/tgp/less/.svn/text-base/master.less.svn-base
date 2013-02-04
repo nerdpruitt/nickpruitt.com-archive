@@ -1,0 +1,493 @@
+/* i.RESET
+---------------------------------------------------------------------- */
+/*	http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain) */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+
+
+
+/* i.TYPOGRAPHY
+---------------------------------------------------------------------- */
+
+h1 { font:700 36px/40px "proxima-nova", sans-serif; margin-bottom:28px; }
+h1 span { font-weight:400; }
+
+.samples h2, .samples h3 { font-family:"proxima-nova", sans-serif; font-weight:700; margin-bottom:28px; }
+
+.samples h2 { font-size:36px; line-height:42px; }
+.samples h3 { font-size:18px; line-height:18px; text-transform:uppercase; }
+
+.description p, #footer p, .samples li { font-size:21px; line-height:28px; }
+
+.description p + p { text-indent:28px; }
+
+.samples ul { margin-bottom:42px; }
+.samples li { list-style:disc; }
+
+.kids_samples h2, .kids_samples a  { color:rgb(74,151,151); }
+.students_samples h2, .students_samples a { color:rgb(218,116,51); }
+.adults_samples h2, .adults_samples a { color:rgb(115,147,68); }
+
+.samples a { font-family:"proxima-nova", sans-serif; }
+.samples a:hover { color:#000; }
+
+.aside { font-family:"proxima-nova", sans-serif; font-weight:400; }
+.aside p { margin-bottom:24px; }
+
+strong { font-weight:700; }
+
+form { margin:42px; }
+label { display:none; font-family:"adobe-garamond-pro", "Times New Roman", serif; font-style:italic; font-weight:700; }
+label.inline_label { display:block; margin:0 0 24px 24px; }
+
+.ie7 form { zoom:1; }
+
+
+//	/* Start Custom select element
+//	=========================================================================== */
+//	/* Wrapper element to enable positioning */
+//	.custom-select-container {position:relative;}
+//	/* Set the dimensions of the replaced select element and make it transparent. */
+//	select.custom.replaced {
+//		position:relative;
+//		z-index:10;
+//	//	width:100%;
+//	//	height:2em;
+//		border:0;
+//		opacity:0;
+//		line-height:2;
+//	}
+//
+//	.no-opacity select.custom.replaced {
+//		filter:alpha(opacity=0); /* Move to IE-specific CSS file if you want to. */
+//	}
+//
+//	.custom-select {
+//		display:block;
+//		position:absolute;
+//		z-index:1;
+//		top:0;
+//		left:0;
+//		width:100%;
+//	}
+//	.custom-select > span {
+//		display:block;
+//	//	padding:0 25px 0 6px;
+//		border:solid 1px #9fbdcd;
+//		background:#fff url(../images/custom-select-bg.png) no-repeat 100% 50%;
+//	}
+//	.custom-select span span {
+//		display:block;
+//		height:2em;
+//		overflow:hidden;
+//		text-overflow:ellipsis;
+//		white-space:nowrap;
+//	}
+//
+//	/* End Custom select element
+//	=========================================================================== */
+//	.ie6 .custom-select {display:none;}
+
+input {
+	border:1px solid #9fbdcd;
+	.box-sizing();
+	font-family:"proxima-nova", sans-serif;
+	font-size:16px;
+	margin-bottom:24px;
+	padding:7px 10px;
+	width:100%;
+}
+
+select { margin-bottom:24px; }
+
+.ie7 form { zoom:1; }
+.ie7 input {
+	width:394px;
+}
+.ie7 select { float:left; }
+.ie7 input.one { width:75px; }
+.ie7 input.two { width:180px; }
+
+
+input[type="text"]:focus { border:1px solid rgb(74,151,151); outline:0; }
+
+.inline_label input {
+	border:none;
+	float:left;
+	margin:2px 0 0 -24px;
+	padding:0;
+	width:auto;
+}
+
+.ie7 .inline_label input {}
+
+button {
+	background-color:#000;
+	border:1px solid #222;
+	color:#fff;
+	cursor:pointer;
+	font-family:"proxima-nova", sans-serif;
+	font-size:16px;
+	font-weight:400;
+	padding:7px 10px;
+	text-transform:uppercase;
+}
+
+button:hover { background-color:rgb(74,151,151); border-color:rgb(74,151,151); }
+
+::-webkit-input-placeholder { color:#bcbcbc; }
+:-moz-placeholder { color:#bcbcbc; }
+.placeholder { color:#bcbcbc; }
+
+::-webkit-selection { background:rgba(159, 189, 205, .8); color:#fff; text-shadow:none; }
+::-moz-selection { background:rgba(159, 189, 205, .8); color:#fff; text-shadow:none; }
+::selection { background:rgba(159, 189, 205, .8); color:#fff; text-shadow:none; }
+
+.js .view_toggle { display:none; }
+
+/* Error Messages */
+input.error { background-color:#fff0f0; border-color:#900; }
+.form_input { position:relative; }
+.ie7 .form_input { clear:both; }
+/*.form_input span.error { display:none !important; }*/
+/*input:focus + span.error, select:focus + span.error { display:block !important; }*/
+span.error { background-color:#000; color:#fff; font-family:"proxima-nova", sans-serif; font-size:75%; font-weight:400; left:50%; margin-left:-9999px; padding:4px 10px; position:absolute; top:-38px; width:auto; white-space:nowrap; }
+.two + span.error { left:23.56%; }
+.two.right + span.error { left:76.44%; }
+.one + span.error { left:11.06%; }
+.one.right + span.error { left:88.94%; }
+.one.middleleft + span.error { left:37.5%; }
+.one.middleright + span.error { left:62.5%; }
+span.error:after { bottom:-6px; content:""; border-top:6px solid #000; border-right:6px solid transparent; border-left:6px solid transparent; left:50%; margin-left:-6px; position:absolute; }
+#footer .section { overflow:visible; }
+
+
+
+/* .LAYOUT
+---------------------------------------------------------------------- */
+body { background:url(../images/bg.png) 0 0; font:16px/21px "adobe-garamond-pro", "Times New Roman", serif; }
+
+.wrap {
+	.box-sizing();	
+	overflow:hidden;
+	position:relative;
+	width:100%;
+	z-index:1;
+}
+
+.aside {
+	clear:both;
+	line-height:21px;
+	margin: 24px 0 0 10px;
+}
+
+.header, .section {
+	margin:0 auto;
+	min-height:100%;
+	position:relative;
+}
+
+.header { padding:24px 0 48px; }
+.section { padding:48px 0; }
+
+.header p { margin-bottom:24px; }
+
+.ie7 .section { z-index:10; }
+
+.description {
+	float:left;
+	margin-left:10px;
+	position:relative;
+	z-index:10;
+}
+
+img.logo { display:block; margin:0 auto 24px; max-width:100%; }
+
+
+.samples .section { margin:0 10px; }
+
+
+// features ---------------------------------------------------------
+.features  {
+	float:left;
+	position:relative;
+	margin:42px 10px;
+	z-index:10;
+}
+
+.features h2 {
+	font-family:"adobe-garamond-pro", "Times New Roman", serif;
+	font-style:italic;
+	font-weight:700;
+}
+
+.features li {	margin-bottom:24px; }
+
+// reset features list for kids section
+#kids .features li { clear:none; float:none; line-height:24px; list-style:disc; margin:0; width:auto; }
+#kids ul { clear:left; }
+
+
+.features strong {
+	font-family:'proxima-nova',sans-serif;
+	font-size:18px;
+	font-weight:700;
+}
+
+a.samples { font-family:'proxima-nova',sans-serif; font-weight:700; text-transform:uppercase; width:100%; }
+
+#kids a.samples { color:rgb(74,151,151); margin:40px 0 0 0; }
+#students a.samples { color:rgb(218,116,51); }
+#adults a.samples { color:rgb(115,147,68); }
+
+#kids a.samples:hover,#students a.samples:hover, #adults a.samples:hover { color:#000; }
+
+
+.bar { height:25px; left:0; position:absolute; top:0; width:100%; z-index:10; }
+
+
+
+// kids ---------------------------------------------------------
+#kids .bar { background-color:rgba(74,151,151,.7); }
+.no-rgba #kids .bar { background-color:rgb(74,151,151); }
+
+#kids {	background:url(../images/kids-bg.png) 50% 0; }
+
+#kids ul { margin:0 0 24px 10px; }
+
+#kids h1 { color: #4a9797; }
+
+
+
+// students ---------------------------------------------------------
+#students .bar {background-color:rgba(218,116,51,.7); }
+.no-rgba #students .bar { background-color:rgb(218,116,51); }
+
+#students {	background:url(../images/students-bg.png) 50% 0; z-index:60;}
+
+#students h1 { color:#f4843d; }
+
+
+
+// adults ---------------------------------------------------------
+#adults .bar { background-color:rgba(115,147,68,.7); }
+.no-rgba #adults .bar { background-color:rgb(115,147,68); }
+
+#adults { background:url(../images/adults-bg.png) 50% 0; z-index:70; }
+
+#adults h1 { color:#7da04a; }
+
+
+
+// fixed elements -----------------------------------------------
+.scroll {
+	background:url(../images/down-arrow.png) no-repeat 50% 100% ;
+	bottom:24px;
+	color:rgb(74,151,151);
+	visibility:hidden;
+	font-family:"proxima-nova", sans-serif;
+	font-style:italic;
+	font-weight:700;
+	height:57px;
+	position:fixed;
+	right:20px;
+	.transition(all .15s linear);
+	z-index:100;
+}
+
+.signup { display:none; bottom:12px; left:50%; margin-left:-278px; position:fixed; .transition(all .15s linear); width:528px; z-index:100; }
+.signup form { margin:0; }
+.signup input { margin:0 14px; width:240px; }
+
+.fade { opacity:0.5;}
+
+/* .FOOTER
+---------------------------------------------------------------------- */
+#footer { background:url(../images/bg.png) 50% 0; padding-bottom:24px; z-index:80; }
+
+#footer h1, .joined h1 { font-family:"adobe-garamond-pro", "Times New Roman", serif; text-align:center; }
+#footer p { font-size:21px; margin-left:10px; }
+
+#footer small { bottom:0; display:block; position:absolute; text-align:center; width:100% }
+small a, .joined a { color:rgb(74,151,151); }
+small a:hover, .joined a:hover{ color: #000; }
+
+
+/* .NAVIGATION
+---------------------------------------------------------------------- */
+.nav { position:fixed; top:0; right:20px; visibility:hidden; z-index:100; }
+.nav li { height:40px;width:40px; }
+.nav a {
+	.border-radius(10px);
+	height:20px;
+	display:block;
+	margin:0 auto;
+	text-indent:-5000px;
+	.transition(all .3s ease-in-out);
+	width:20px;
+}
+/*
+.nav .active {
+	.border-radius(14px);
+	height:28px;
+	width:28px;
+}
+*/
+a.intro, a.footer { background:url(../images/circle-cross.png) no-repeat; }
+a.kids { background-color:rgb(74,151,151); }
+a.students { background-color:rgb(218,116,51); }
+a.adults { background-color:rgb(115,147,68); }
+
+.top {  bottom:0; position:fixed; z-index:100; }
+
+/* .VIDEO
+---------------------------------------------------------------------- */
+
+.video_wrapper { background:#222; height:225px; margin-bottom:28px; width:400px; }
+#kids .video_wrapper { float:right; }
+
+
+
+/* APPENDIX A.HELPER CLASSES
+---------------------------------------------------------------------- */
+/* non-semantic helper classes */
+
+/* clearfix */
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/ */
+.group:before, .group:after { content:"\0020"; display:block; height:0; overflow:hidden; }
+.group:after { clear:both; }
+.group { zoom:1; }
+
+.fade-out { opacity:0; }
+
+
+/* APPENDIX C.MEDIA QUERIES
+---------------------------------------------------------------------- */
+/* assumes that base styles start with the smallest screens and move to bigger screens from there */
+
+/* 768px */
+@media only screen and (min-width: 768px) {
+	body { background-position: 50% 0; }
+	h1 { font:700 54px/56px "proxima-nova", sans-serif; margin-bottom:28px; }
+
+	img.logo { display:none; }
+	.samples img.logo { display:block; margin-top:-33px; right:-20px; }
+	.scroll, .nav { visibility:visible; }
+	
+	.one { width:92px; }
+	.two { width:200px; }
+	.three { width:297px; }
+	
+	.right { margin-left:12px; }
+	
+	select { margin-bottom:0; }
+	
+	.ie7 input { float:left; }
+	
+	.header, #footer .section { padding:96px 0 192px; }
+	.header img.logo { display:block; float:right; margin:0 24px 24px 0; position:static; }
+	.header .description { margin-top:40px; }
+	.header p { margin-bottom:0; }	
+	
+	.section { padding:216px 0 176px; }
+	.ie8 .header { padding:0 0 96px; }
+	.ie8 .section { padding:64px 0 36px; }
+	
+	.header, .section { max-width:62.5em; } // 1000 / 16
+	#footer .section { max-width:31.25em; } // 500 / 16
+	#footer p { margin-left:0; }
+	
+	.joined .description { float:none; margin:0 auto; max-width:31.25em; }
+	
+	.samples .section { margin:0 auto; max-width:37em; text-align:left; }
+	
+	.description { 	width:52%; } // 520 / 1000
+	
+	.aside { clear:none; line-height:21px; margin:0; float:right; width:40%; } // 400 / 1000
+	
+	.aside li { float:left;	width:200px; }
+	
+	.logo {
+		position:absolute;
+		z-index:20;
+	}
+
+	.graphic {
+		position:absolute;
+		height:100%;
+		left:0;
+		top:0;
+		width:100%;	
+		z-index:1;
+	}
+
+	span.logo, .illo {
+		position:absolute;
+		z-index:5;
+	}
+	
+	.features {	margin:42px 0; width:600px } //600 / 1000
+	#kids ul { float:left; margin:0; width:200px; }
+	
+
+	// kids ---------------------------------------------------
+	#kids .graphic { background:url(../images/kids-tagline.png) no-repeat fixed 0 -100px; }
+	#kids span.logo { background:url(../images/kids-logo-circle.png) no-repeat 83% 500px; height:1000px; right:20px; top:0; width:369px; }
+	#kids .illo { background: url(../images/kids-illo.png) no-repeat  83% 500px; height:1000px; right:-34px; top:0; width:568px; }
+	
+	// students -----------------------------------------------
+	#students .graphic { background:url(../images/students-tagline.png) no-repeat fixed 0 -100px; }
+	#students span.logo { background:url(../images/students-logo-circle.png) no-repeat 100% 500px; height:1000px; right:-20px; top:0; width:452px; }
+	#students .illo { background:url(../images/students-illo.png) no-repeat 100% 500px; height:1000px; right:0; top:0; width:304px; .transform(rotate(20deg));}
+	
+	
+	//adults --------------------------------------------------
+	#adults .graphic { background:url(../images/adults-tagline.png) no-repeat fixed 0 -100px; }
+	#adults .circle { background: url(../images/adults-circle.png) no-repeat 0 0; height:346px; left:10px; top:10px; position:absolute; width:345px; z-index:100; }
+	#adults span.logo { background: url(../images/adults-logo.png) no-repeat 0 0; height:158px; right:20px; top:178px; width:342px; }
+	#adults .illo { background:#8EB859 url(../images/adults-illo.png) repeat-x 50% -105px; .border-radius(184px); height:368px; right:15px; top:370px; width:368px; }
+
+	.no-borderradius #adults .illo { background: transparent url(../images/adults-illo-circle.png) no-repeat 0 0; height:368px; right:15px; top:370px; width:368px; }	
+}
+
+
+/* 9960px */
+@media only screen and (min-width: 960px) {
+	.features h2 {
+		float:left;
+		margin-right:20px;
+		text-align:right;
+		width:180px;
+	}
+	
+	.features li {
+		float:left;
+		margin-left:10px;
+		margin-bottom:40px;
+		width:190px;
+	}
+
+	.features li:nth-child(3) {
+		clear:both;
+		float:left;
+		margin-left:210px;
+	}
+
+	li.third, a.samples {
+		clear:both;
+		display:inline;
+		float:left;
+		margin-left:210px;
+	}	
+}
+
+
+/* APPENDIX B.LESS
+---------------------------------------------------------------------- */
+@import "mixins.less";

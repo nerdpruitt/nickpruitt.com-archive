@@ -1,0 +1,318 @@
+/* i.RESET
+---------------------------------------------------------------------- */
+/*	http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain) */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+
+
+/* i.TYPOGRAPHY
+---------------------------------------------------------------------- */
+
+h1 { font:700 54px/56px "proxima-nova", sans-serif; margin-bottom:28px; }
+h1 span { font-weight:400; }
+
+.description p, #footer p { font-size:21px; line-height:28px; }
+
+.description p + p { text-indent:28px; }
+
+.aside { font-family:"proxima-nova", sans-serif; font-weight:400; }
+.aside p { margin-bottom:24px; }
+
+strong { font-weight:700; }
+
+form { margin:42px; }
+label { font-family:"adobe-garamond-pro", "Times New Roman", serif; font-style:italic; font-weight:700; }
+input {
+	border:1px solid #9fbdcd;
+	.box-sizing();
+	font-family:"proxima-nova", sans-serif;
+	font-size:16px;
+	margin-bottom:24px;
+	padding:7px 10px;
+	width:100%;
+}
+
+button {
+	background-color:#000;
+	border:1px solid #222;
+	color:#fff;
+	font-family:"proxima-nova", sans-serif;
+	font-size:16px;
+	font-weight:400;
+	padding:7px 10px;
+	text-transform:uppercase;
+}
+
+
+.one { width:90px; }
+.two { width:200px; }
+.four { width:297px; }
+
+::-webkit-input-placeholder { color:#bcbcbc; }
+:-moz-placeholder { color:#bcbcbc; }
+.placeholder { color:#bcbcbc; }
+
+::-webkit-selection { background:rgba(159, 189, 205, .8); color:#fff; text-shadow:none; }
+::-moz-selection { background:rgba(159, 189, 205, .8); color:#fff; text-shadow:none; }
+::selection { background:rgba(159, 189, 205, .8); color:#fff; text-shadow:none; }
+
+
+
+/* .LAYOUT
+---------------------------------------------------------------------- */
+body { background:url(../images/bg.png) 50% 0; font:16px/21px "adobe-garamond-pro", "Times New Roman", serif; }
+
+.wrap {
+	.box-sizing();	
+	overflow:hidden;
+	position:relative;
+	width:100%;
+}
+
+.aside {
+	float:right;
+	line-height:21px;
+	width:400px;
+}
+
+.aside li {
+	float:left;
+	width:200px;
+}
+
+.header, .section {
+	margin:0 auto;
+	min-height:100%;
+	position:relative;
+	max-width:62.5em; // 1000px
+}
+
+.header { padding:120px 0 216px; }
+.section { padding:216px 0; }
+
+.description {
+	float:left;
+	margin-left:10px;
+	position:relative;
+	width:520px;
+	z-index:10;
+}
+
+.logo {
+	position:absolute;
+	right:20px;
+	top:158px;
+	z-index:20;
+}
+
+.graphic {
+	position:absolute;
+	height:100%;
+	left:0;
+	top:0;
+	width:100%;	
+	z-index:1;
+}
+
+span.logo, .illo {
+	position:absolute;
+	z-index:5;
+}
+
+
+// features ---------------------------------------------------------
+.features  {
+	float:left;
+	position:relative;
+	margin-top:42px;
+	width:600px;
+	z-index:10;
+}
+
+.features h2 {
+	float:left;
+	font-family:"adobe-garamond-pro", "Times New Roman", serif;
+	font-style:italic;
+	font-weight:700;
+	margin-right:20px;
+	text-align:right;
+	width:180px;
+}
+
+.features li {
+	float:left;
+	margin-left:10px;
+	margin-bottom:40px;
+	width:190px;
+}
+
+.features li:nth-child(3), .third {
+	clear:both;
+	float:left;
+	margin-left:210px;
+}
+.third { border:1px solid red; }
+
+// reset features list for kids section
+#kids .features li { clear:none; float:none; line-height:24px; list-style:disc; margin:0; width:auto; }
+#kids ul { clear:left; float:left; width:200px; }
+
+.features strong {
+	font-family:'proxima-nova',sans-serif;
+	font-size:18px;
+	font-weight:700;
+}
+
+.bar { height:25px; left:0; position:absolute; top:0; width:100%; z-index:90; }
+
+
+
+// kids ---------------------------------------------------------
+#kids .bar { background-color:rgba(74,151,151,.7); z-index:100; }
+
+#kids {
+	background:url(../images/kids-bg.png) 50% 0;
+
+}
+
+#kids h1 { color: #4a9797; }
+
+#kids .graphic { 
+	background:url(../images/kids-tagline.png) no-repeat fixed 0 -100px;
+}
+
+img.logo { display:none; }
+
+#kids span.logo { background:url(../images/kids-logo-circle.png) no-repeat 83% 500px; height:1000px; top:0; width:369px; }
+//#kids .circle { background: url(../images/kids-circle.png) no-repeat  83% 500px; height:1000px; right:15px; top:0; width:369px;}
+#kids .illo { background: url(../images/kids-illo.png) no-repeat  83% 500px; height:1000px; right:-34px; top:0; width:568px; }
+
+
+
+// students ---------------------------------------------------------
+#students .bar {background-color:rgba(218,116,51,.7); z-index:61; }
+
+#students {
+	background:url(../images/students-bg.png) 50% 0;
+	//border-top:26px solid rgba(218,116,51,.7);
+	z-index:60;
+}
+#students h1 { color:#f4843d; }
+#students .graphic { 
+	background:url(../images/students-tagline.png) no-repeat fixed 0 -100px;
+}
+
+#students span.logo { background:url(../images/students-logo-circle.png) no-repeat 100% 500px; height:1000px; right:-20px; top:0; width:452px; }
+//#students .circle { background:url(../images/students-circle.png) no-repeat 0 0; height:750px; right:-25px; top:130px; width:452px;}
+#students .illo { background:url(../images/students-illo.png) no-repeat 100% 500px; height:1000px; right:0; top:0; width:304px; .transform(rotate(20deg));}
+
+
+// adults ---------------------------------------------------------
+#adults .bar { background-color:rgba(115,147,68,.7); z-index:71; }
+
+#adults {
+	background:url(../images/adults-bg.png) 50% 0;
+	//border-top:26px solid rgba(115,147,68,.7);
+	z-index:70;
+}
+
+#adults h1 { color:#7da04a; }
+
+#adults .graphic { 
+	background:url(../images/adults-tagline.png) no-repeat fixed 0 -100px;
+}
+
+#adults .circle { background: url(../images/adults-circle.png) no-repeat 0 0; height:346px; left:10px; top:10px; position:absolute; width:345px; z-index:100; }
+
+#adults span.logo { background: url(../images/adults-logo.png) no-repeat 0 0; height:158px; width:342px; }
+#adults .illo { background:#8EB859 url(../images/adults-illo.png) no-repeat 50% -105px; .border-radius(184px); height:368px; right:15px; top:370px; width:368px; }
+.no-borderradius #adults .illo { 
+	background: transparent url(../images/adults-illo-circle.png) no-repeat 0 0; height:368px; right:15px; top:370px; width:368px; }
+
+
+// fixed elements -----------------------------------------------
+.scroll {
+	background:url(../images/down-arrow.png) no-repeat 50% 100% ;
+	bottom:24px;
+	color:rgb(74,151,151);
+	font-family:"proxima-nova", sans-serif;
+	font-style:italic;
+	font-weight:700;
+	height:57px;
+	position:fixed;
+	right:20px;
+	.transition(all .15s linear);
+	z-index:100;
+}
+
+.signup { display:none;
+	 bottom:12px; left:50%; margin-left:-278px; position:fixed; .transition(all .15s linear); width:528px; z-index:100; }
+.signup form { margin:0; }
+.signup input { margin:0 14px; width:240px; }
+
+.fade { opacity:0.5;}
+
+/* .FOOTER
+---------------------------------------------------------------------- */
+#footer { background:url(../images/bg.png) 50% 0; z-index:80; min-height:950px; }
+
+#footer h1 { font-family:"adobe-garamond-pro", "Times New Roman", serif; text-align:center; }
+#footer p { font-size:21px; } 
+#footer .section { width:500px; }
+
+
+/* .NAVIGATION
+---------------------------------------------------------------------- */
+.nav { position:fixed; top:0; right:20px; z-index:100; }
+.nav li { height:40px;width:40px; }
+.nav a {
+	.border-radius(10px);
+	height:20px;
+	display:block;
+	margin:0 auto;
+	text-indent:-5000px;
+	.transition(all .3s ease-in-out);
+	width:20px;
+}
+/*
+.nav .active {
+	.border-radius(14px);
+	height:28px;
+	width:28px;
+}
+*/
+a.kids { background-color:rgb(74,151,151); }
+a.students { background-color:rgb(218,116,51); }
+a.adults { background-color:rgb(115,147,68); }
+
+.top {  bottom:0; position:fixed; z-index:100; }
+
+/* .VIDEO
+---------------------------------------------------------------------- */
+.video_wrapper { background:#222; height:225px; margin-bottom:28px; width:400px; }
+
+
+/* APPENDIX A.HELPER CLASSES
+---------------------------------------------------------------------- */
+/* non-semantic helper classes */
+
+/* clearfix */
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/ */
+.group:before, .group:after { content:"\0020"; display:block; height:0; overflow:hidden; }
+.group:after { clear:both; }
+.group { zoom:1; }
+
+.fade-out { opacity:0; }
+
+.right { float:right; }
+
+
+/* APPENDIX B.LESS
+---------------------------------------------------------------------- */
+@import "mixins.less";

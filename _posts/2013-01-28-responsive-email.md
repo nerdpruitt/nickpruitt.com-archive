@@ -9,7 +9,7 @@ Let us face a truth together: coding an HTML email is maybe one of the worst thi
 
 So when I was tasked with figuring out a mobile solution for our email campaigns, I was both intrigued and a little intimidated. How with decade old techniques could I do this? But then again, how with decade old techniques <em>could</em> I do this? It was fun to figure out. At the outset, we decided to support the email clients listed in the <a href="http://www.campaignmonitor.com/css">Campaign Monitor CSS Support Table</a> short list. For me this means, forget you Lotus Notes, and forget you Blackberry.
 
-All this to say: things will get ugly here and I know it, but it totally works, and we are really pleased with the results. Here is the <a href="#">email</a>, and here are a few main points on its construction.
+In the end we are really pleased with the results. Here is the <a href="/work/responsive-email/store_email_responsive_template_standard.html">email</a>, and here are a few main points on its construction.
 
 ## The magic of align="left" ##
 
@@ -21,13 +21,13 @@ The main question I had going into this project was, "How will I do this without
     <p>Basically, this all depends on the design, and for the design of this particular email, going to Stacksville is the right thing to do. So there.</p>
 </div>
 
-Turns out the answer is simple. You can just use <code class="language-markup"><table align="left"></code>. Yes our ancient friend <code class="language-markup">align="left"</code>. Not since my days of working in a horrible, outdated, inhouse CMS at my first job have I used it. This humble bit of history is what makes all the stacking in the responsive email possible. When there is room for both elements, they appear side-by-side. When there isn't, we make the width of those elements <code class="language-css">100%</code> and let them stack. This is surprisingly effective. But how are we getting the <code class="language-css">100%</code>, you may ask? Why, what a nice segue to my next point.
+Turns out the answer is simple. You can just use <code class="language-markup"><table align="left"></code>. Yes, our ancient friend <code class="language-markup">align="left"</code>. Not since my days of working in a horrible, outdated, inhouse CMS at my first job have I used it. This humble bit of history is what makes all the stacking in the responsive email possible. When there is room for both elements, they appear side-by-side. When there isn't, we make the width of those elements <code class="language-css">100%</code> and let them stack. This is surprisingly effective. But how are we getting the <code class="language-css">100%</code>, you may ask? Why, what a nice segue to my next point.
 
 ## Media Queries, of course ##
 
-The next piece of pulling off this responsive email was the obvious inclusion of media queries. How is this obvious when most email clients render pages worse than Netscape did while you were still looking at Star Trek fan pages in your mamma's basement over the extra phone line? As fate would have it, mobile email clients in general have way better CSS support than their desktop brethren (looking at you Outlook 2007/10/13, you miserable sonsofshamsters!). So we use media queries and some well placed classes to make it happen.
+The next piece of pulling off this responsive email was the obvious inclusion of media queries. How is this obvious when most email clients render pages worse than Netscape did while you were still looking at Star Trek fan pages in your mamma's basement over the extra phone line? As fate would have it, mobile email clients in general have way better CSS support than their desktop brethren (looking at you Outlook 2007/10/13, you miserable sonsofshamsters!). So we can use media queries and some well placed classes to make it happen.
 
-I set up a main table to be the background and contain everything and then nested tables inside with a class of <code class="launguage-markup">inner</code>. Then top it off with a class of <code class="language-css">flex</code> on images that I wanted to resize. After that, the bulk of what I needed to start seeing things work and resize was handled with a surprisingly small amount of CSS:
+I set up a main table to be the background and contain everything and then nested tables inside that with a class of <code class="launguage-markup">inner</code>. Then I topped it off with a class of <code class="language-css">flex</code> on images that I wanted to resize. After that, the bulk of what I needed to start seeing things work and resize was handled with a surprisingly small amount of CSS:
 
 <div markdown="1" class="language-css">
     @media only screen and (max-width: 480px) {
@@ -45,12 +45,12 @@ Remember that the <code class="language-css">!important</code> is --- well --- i
 
 ## The swapping banner trick ##
 
-The main banner at the top was getting too short and the text too small at lower resolutions, so we decided to use this as an opportunity to serve up an image just for mobile users. There is added bonus here too if we can highlight the coupon code, so someone can just pull up the email at a store to redeem it.  Generally, you can pull this off by hiding the <code class="language-markup"><img></code> and setting a background image on its containing element with something to this effect.
+The main banner at the top was getting too short and the text too small at lower resolutions, so we decided to use this as an opportunity to serve up an image just for mobile users. There is added bonus here too if we can highlight the coupon code, so someone can just pull up the email at a store to redeem it.  Generally, you can pull this off by hiding the <code class="language-markup">img</code> and setting a background image on its containing element with something to this effect.
 
 <div markdown="1" class="language-css">
     @media only screen and (max-device-width: 480px) {
         td[class="hero"] {
-            background-image: url(images/header-325.png);
+            background-image: url(images/header-mobile.png);
             width: 325px !important;
             height: 115px !important;
         }
@@ -64,7 +64,7 @@ The main banner at the top was getting too short and the text too small at lower
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
        <tr>
           <td class="hero">
-            <img src="images/header.png" border="0" width="600" />
+            <img src="images/header-desktop.png" border="0" width="600" />
         </td>
        </tr>
     </table>
@@ -103,7 +103,7 @@ Then I swap out which one is visible thusly:
     }
 </div>
 
-Gmail doesn't understand <code class="language-css">display:none;</code>, so I set the width and height to zero. Outlook doesn't understand either of these, so I ended up having to add a conditional comment just to hide this from Outlook 2007/10/13. Then it would be hidden in Outlook through the conditional comment, and from everything else through the CSS.
+Note that Gmail doesn't understand <code class="language-css">display:none;</code>, so I set the width and height to zero to hide the mobile version. But then Outlook doesn't understand either of these methods, so I ended up having to add a conditional comment just to hide this from Outlook 2007/10/13. Then it would be hidden in Outlook through the conditional comment, and from everything else through the CSS.
 
 <div markdown="1" class="language-markup">
     <table id="content" class="inner" cellpadding="0" cellspacing="0" border="0" width="700" align="center">
@@ -124,7 +124,7 @@ Gmail doesn't understand <code class="language-css">display:none;</code>, so I s
     </table>
 </div>
 
-This was by far my most grevious sin. On my next responsive email, I would like to try hiding the image inside the link element and setting a background image on it. Then maybe both could scale in peaceful harmony using some kind of <code class="language-css">background-size</code> trickery. I know it's an email and all, but it would at least be cleaner and leave those with crappy clients a nicer fallback. I have more of these scheduled, so more to come on that soon.
+This was by far my most grevious sin. On my next responsive email, I would like to try hiding the image inside the link element and setting a background image on it. Then maybe both could scale in peaceful harmony using some kind of <code class="language-css">background-size</code> trickery. I know it's an email and all, but it would at least be cleaner and leave those with crappy clients a nicer fallback. Deep down Lotus Notes users are human, so how can I completely turn my back on my brothers? I have more of these scheduled, so more to come on that soon.
 
 ## The cool trick of the spacer ##
 
@@ -158,8 +158,8 @@ This is so blatantly obvious and simple that I almost didn't include it, but I t
     </tr>
 </div>
 
-Voila! Insta-add-space-only-when-you-need-it-class!
+Voila! Insta-add-space-only-when-you-need-it-class! This also performed quite well because mobile email clients actually understand margins where many desktop ones don't. How novel a concept.
 
-Write closing.
+## Litmus Test ##
 
-And for those of you keeping score at home here is the [Litmus test](https://litmus.com/pub/107ea49).
+Our last step is to run the email through [Litmus](https://litmus.com) for final testing. Litmus is a seriously awesome and easy testing tool for running this stuff through email clients quickly. I lived in it my last day of development, and it worked just great. So here we are looking good on mobile and on desktop, and working in our clients of choice. And because Litmus is cool, you can view the results of the test [here](https://litmus.com/pub/107ea49).

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6" id="domain-com"><![endif]--> 
+<!--[if IE 7 ]><html lang="en" class="no-js ie7" id="domain-com"><![endif]--> 
+<!--[if IE 8 ]><html lang="en" class="no-js ie8" id="domain-com"><![endif]--> 
+<!--[if IE 9 ]><html lang="en" class="no-js ie9" id="domain-com"><![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js" id="domain-com"><!--<![endif]--> 
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<title>Thanks for joining The Gospel Project!</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+				
+		<link rel="shortcut icon" href="/favicon.ico">
+
+  		<link rel="stylesheet" href="/css/master.css">
+		
+		<script type="text/javascript" src="http://use.typekit.com/dla1oga.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+		<script src="/js/libs/modernizr-2.custom.js"></script>
+
+		<script language="JavaScript" type="text/javascript">
+			var host=window.location.hostname;var account="lifeway2dev";var environment="test";var arl="http://";var sarl="https://";
+		    switch (host.substr(host.lastIndexOf(".") + 1)){
+				case "test":
+				case "org": //development
+					account="lifeway2dev";environment="test";arl="http://";sarl=arl;break;
+				case "office":
+		        case "model": //model
+					account="lifeway2test";environment="office";arl="http://";sarl=arl;break;
+				case "com": //production
+					account="lifeway2prod";environment="com";arl="http://a729.g.akamai.net/f/729/16507/7d/";sarl="https://a248.e.akamai.net/f/248/16507/7d/";break;
+				default: //error
+					account="lifeway2dev";environment="test";break;
+			};document.write('<sc'+'rip'+'t lan'+'guage="java'+'scr'+'ipt" type="te'+'xt/ja'+'vascri'+'pt" src="'+((location.protocol == 'http:')?arl:sarl)+'stats.lifeway.'+environment+'/header/?'+account+'"></scr'+'ipt>');
+		</script>
+		<script language="JavaScript" type="text/javascript">
+			objOmni.setVar("channel", "gospelproject");
+			objOmni.setVar("prop5", "gospelproject page view");
+			objOmni.setVar("pageName", "thank you");
+		</script>
+	</head>
+
+	<body class="joined">
+		<div class="wrap">
+			<div class="section group">				
+				<h1>Thank you for signing up to review<br>The Gospel Project.</h1>
+				<div class="description">
+					<p>We believe that the Gospel is central to our lives.  It saves us and sustains us.  We are excited about the chance to offer Bible study groups a way to experience this truth, and appreciate any comments you may have to help us make it better.</p>
+
+					<p>We will be posting the Bible Study material for download and review to GospelProject.com by March 1st.</p>
+
+					<p>You will also receive an e-mail alert when the files are posted.</p>
+					<br>
+					<p>Or stay up to date by connecting with us through <a href="http://twitter.com/gospel_project">Twitter</a> or <a href="https://www.facebook.com/thegospelproject">Facebook</a>.</p>
+				</div>
+			</div>
+		</div>
+		
+		<script language="JavaScript" type="text/javascript">
+			document.write('<sc'+'rip'+'t lan'+'guage="java'+'scr'+'ipt" type="te'+'xt/ja'+'vascri'+'pt" src="'+((location.protocol == 'http:')?arl:sarl)+'stats.lifeway.'+environment+'/footer/"></scr'+'ipt>');
+		</script>
+	</body>
+</html>

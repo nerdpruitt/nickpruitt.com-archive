@@ -1,0 +1,59 @@
+/* Using Mark Ottos's very cool bootstrap.less, found at: http://markdotto.com/bootstrap/ */
+// Gradients
+#gradient {
+	.horizontal (@startColor: #a6111d, @endColor: #7a0c15) {
+		background-repeat: repeat-x;
+		background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor)); /* Konqueror */
+		background-image: -moz-linear-gradient(left, @startColor, @endColor); /* FF 3.6+ */
+		background-image: -ms-linear-gradient(left, @startColor, @endColor); /* IE10 */
+		background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */
+		background-image: -webkit-linear-gradient(left, @startColor, @endColor); /* Safari 5.1+, Chrome 10+ */
+		background-image: -o-linear-gradient(left, @startColor, @endColor); /* Opera 11.10 */
+		background-image: linear-gradient(left, @startColor, @endColor); /* the standard */
+	}
+	.vertical (@startColor: #555, @endColor: #333) {
+	    background-repeat: repeat-x;
+	    background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); /* Konqueror */
+	    background-image: -moz-linear-gradient(@startColor, @endColor); /* FF 3.6+ */
+	    background-image: -ms-linear-gradient(@startColor, @endColor); /* IE10 */
+	    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */
+	    background-image: -webkit-linear-gradient(@startColor, @endColor); /* Safari 5.1+, Chrome 10+ */
+	    background-image: -o-linear-gradient(@startColor, @endColor); /* Opera 11.10 */
+	    background-image: linear-gradient(@startColor, @endColor); /* the standard */
+	  }
+}
+
+// Drop shadows
+.box-shadow (@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -moz-box-shadow: @shadow;
+  -webkit-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+// Border Radius
+.border-radius(@radius: 3px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// Box Sizing
+.box-sizing(@box: border-box) {
+	-moz-box-sizing:@box;
+	-webkit-box-sizing:@box;
+	box-sizing:@box;
+}
+
+// Transitions
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition: @transition;
+	transition: @transition;
+}
+
+// Transforms
+.transform(@transform) {
+	-webkit-transform: @transform;
+	-moz-transform: @transform;
+	transform: @transform;
+}

@@ -1,0 +1,601 @@
+/*
+
+	VBS 2012 ANNOUNCEMENT SITE
+
+	CONTENTS ----------
+	
+	i.RESET
+	
+	1.BODY
+	2.DEFAULT STYLING
+	3.AMAZING WONDERS
+		1.HEADINGS
+		2.LINKS
+		3.tiberius
+		4.LAYOUT
+		5.BRANDING/MASTHEAD
+		6.NAVIGATION		
+		7.SITEINFO/FOOTER
+	4.SPACEQUEST
+		1.HEADINGS
+		2.LINKS
+		3.tiberius
+		4.LAYOUT
+		5.BRANDING/MASTHEAD
+		6.NAVIGATION	
+		7.SITEINFO/FOOTER
+	5.FORMS
+		6.1 INPUTS
+		6.2 LABELS	
+	6.SITE-WIDE ELEMENTS
+	7.MICROFORMATS
+	8.PRINTING
+
+	-------------------
+
+	COLORS ------------
+
+	lifeway red - #810d16  129,13,22
+	blue - #225d99
+	error red (price red) - #a6111d
+	light grey - #eee
+	grey - #ccc
+	dark grey - #555
+
+	-------------------
+	
+*/
+
+
+
+/* i.RESET
+---------------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:transparent; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q {	quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+a:active { outline:0; }
+
+
+
+/* 1.BODY
+---------------------------------------------------------------------- */
+
+body { font:14px/18px "Helvetica Neue", Helvetica, Arial, sans-serif; position: relative; }
+
+.home { background: #323d9a url(../tiberius/home/bg.jpg) no-repeat 100% 0; min-height: 1001px; }
+
+.ie6 .home { height: 1001px; }
+
+#grid { background:url(../tiberius/global/grid.png) repeat-y 50% 0; display:block; height:100%; margin:0 auto; position:absolute; width:100%; z-index: 50; }
+
+
+/* 2.DEFAULT STYLING
+---------------------------------------------------------------------- */
+
+#two_options { background: url(../tiberius/home/two_options.png) no-repeat; display: block; height: 114px; left: 25px; position: absolute; text-indent: -5000px; top: 45px; width: 243px; z-index: 10; }
+
+
+/* 2.AMAZING WONDERS
+---------------------------------------------------------------------- */
+.photo { background: #fceccd url(../tiberius/awa/texture.png); position: relative; -moz-box-shadow: 1px 1px 5px rgba(0,0,0,.8); -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,.8); box-shadow: 1px 1px 5px rgba(0,0,0,.8); }
+
+#intro .photo { margin: 22px; padding: 24px 30px; }
+	
+.photo .graphic { display: block; position: absolute; }
+
+.ie6 .graphic.top,
+.ie6 .graphic.right,
+.ie6 .graphic.bottom,
+.ie6 .graphic.left 
+{ display: none; }
+
+.ie6 .photo { border: 8px solid #fff; }
+
+.ie6 .tlc { left: -10px; top: -10px; }
+.ie6 .trc { right: -15px; top: -10px; }
+.ie6 .brc { bottom: -12px; right: -15px; }
+.ie6 .blc { bottom: -12px; left: -10px; }
+
+.graphic.top { background: url(../tiberius/awa/torn_top.png) repeat-x 0 1px; height: 22px; left: 0; top: -11px; width: 100%; }
+.graphic.right { background: url(../tiberius/awa/torn_right.png) repeat-y -1px 0; height:100%; right: -11px; top: 0; width: 22px; }
+.graphic.bottom { background: url(../tiberius/awa/torn_bottom.png) repeat-x 0 -1px; bottom:-11px; height:22px; left: 0; width:100%; }
+.graphic.left { background: url(../tiberius/awa/torn_left.png) repeat-y 1px 0; height: 100%; left: -11px; top: 0; width: 22px; }
+
+.graphic.tlc, .graphic.trc, .graphic.blc, .graphic.brc { height: 32px; width: 34px; }
+.graphic.tlc { background: url(../tiberius/awa/tlc.png) no-repeat; left: -5px; top: -5px; }
+.graphic.trc { background: url(../tiberius/awa/trc.png) no-repeat; right:-10px; top:-5px; }
+.graphic.brc { background: url(../tiberius/awa/brc.png) no-repeat; bottom: -7px; right: -10px; }
+.graphic.blc { background: url(../tiberius/awa/blc.png) no-repeat; bottom: -7px; left: -5px; }
+
+.wonder { position:absolute; width:277px; z-index:20; }
+
+.canyon { top: -290px; left: 0; -moz-transform: rotate(-2deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(-2deg); -webkit-transform-origin: 50% 0; z-index:20; } 
+
+
+	/* 1.HEADINGS
+	---------------------------------------------------------------------- */
+	.awa h1, .awa h2, .awa h3, .awa h4, .awa h5, .awa h6 { color: #c82d2a; }
+	
+	#amazing_wonders_info h2 { color:#c82d2a; }
+	.awa h2 { font-size:21px; font-weight:normal; }
+	.awa .col h2 { clear:left; margin-bottom:7px; }
+	
+	.awa p, .awa li, .awa cite { color:#403b65; font-size:16px; line-height:21px; }
+	.awa p, .awa #content ul, .awa blockquote { margin-bottom:18px; }
+	
+	
+	#content ul li { list-style:disc; }
+	
+	#amazing_wonders_info h2 a:hover { color:#013968; }
+	
+
+	/* 2.LINKS
+	---------------------------------------------------------------------- */
+	
+	.home #amazing_wonders a, .awa a { color: #c82d2a; }
+	.home #amazing_wonders a:hover, .awa a:hover { color: #013968; }
+
+	#amazing_wonders_info h2 a:hover { color: #013968; }
+	
+	
+	
+	/* 3.tiberius
+	---------------------------------------------------------------------- */
+
+
+	/* 4.LAYOUT
+	---------------------------------------------------------------------- */
+	.home #amazing_wonders { position: absolute; right: 0; top: 10px; width: 760px; }
+	
+	#amazing_wonders .logo,	#globe,	#plane { position: absolute; }
+	
+	#amazing_wonders_info { background-color: rgba(219,235,240,.8); -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 0 10px rgba(71,82,178,.6); -o-box-shadow: 0 0 10px rgba(71,82,178,.6); -webkit-box-shadow: 0 0 10px rgba(71,82,178,.6); left: 0; padding: 10px; position: absolute; top: 76px; width: 308px; z-index: 20; }
+	.no-rgba #amazing_wonders_info { background-color: #fff; border: 1px solid #ccc; }
+	#amazing_wonders_info p { color: #013968; font-size: 16px; line-height: 21px; margin-bottom: 12px; }
+		
+	#globe { right:0; top:109px; }
+	#plane { right:0; top:384px; z-index:1; }
+	
+	.awa { background: #d6bb8b url(../tiberius/awa/bg.jpg); }
+	
+	.awa #header, .awa #content, .awa #footer { clear: both; margin: 0 auto; position: relative; width: 990px; }
+	
+	.awa #content_wrap { background: #fceccd url(../tiberius/awa/texture.png) repeat 75% 0; padding: 24px 0; position: relative; z-index: 5; }
+	.awa.biblical #content_wrap { background: transparent none; }
+	
+	.awa #biblical_content { background: url(../tiberius/awa/biblical_content.jpg) no-repeat; display: block; height: 54px; left: 24px; position: absolute; text-indent: -5000px; top: -86px; -webkit-transition: 0.1s linear; width: 326px; z-index: 1; }
+	.awa #biblical_content:hover { height: 74px; top: -92px; }
+	
+	.graphic.torn_top, .graphic.torn_bottom { display: block; height: 22px; position: absolute; width: 100%; z-index: 5; }
+	
+	.graphic.torn_top { background: url(../tiberius/awa/torn_top.png) repeat-x 75% 0; left: 0; top: -22px; }
+	.graphic.torn_bottom { background: url(../tiberius/awa/torn_bottom.png) repeat-x 75% 0; bottom: -22px; left: 0; }
+	
+	.awa.biblical #content { min-height: 1495px; }
+	
+	#content #days li { list-style: none; position: absolute; text-shadow: 1px 1px 1px rgba(255,255,255.8); }	
+	
+	#days .photo_wrap { width: 350px; }
+	#days .photo { padding: 30px 30px 18px 30px; }
+	#days .photo h1 { color: #c82d29; font-family: Georgia, "Times New Roman", Times, serif; font-size: 18px; font-style: italic; font-weight:normal; margin-bottom: 12px; }
+	#days .photo h1 span { color: #403b65; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-style: normal; }
+	
+	#days .photo h2 { font-family: Georgia, "Times New Roman", Times, serif; font-size: 16px; font-style: italic; font-weight:normal; }	
+	
+	#days .wonder .photo { padding: 0; width: 277px; }
+
+	#days .wonder.us_map .photo { margin: 22px; width: 370px; }	
+	
+	#days li:nth-child(1) { left: 440px; top: -430px; -moz-transform: rotate(2deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(2deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(2) { left: 140px; top: -50px; -moz-transform: rotate(-1deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(-1deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(3) { right: 102px; top: 46px; -moz-transform: rotate(3deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(3deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(4) { left: 102px; top: 320px; -moz-transform: rotate(1deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(1deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(5) { right: 140px; top: 423px; }
+	#days li:nth-child(6) { left: 117px; top: 760px; -moz-transform: rotate(1deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(1deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(7) { right: 90px; top: 780px; -moz-transform: rotate(-2deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(-2deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(8) { left: 32px; top: 1192px; -moz-transform: rotate(2deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(2deg); -webkit-transform-origin: 50% 0; }
+	#days li:nth-child(9) { left: 460px; top: 1162px; -moz-transform: rotate(3deg); -moz-transform-origin : 50% 0; -webkit-transform: rotate(3deg); -webkit-transform-origin: 50% 0; }
+		
+	.graphic.line { display: block; margin: 0 auto; overflow: visible; position: relative; width: 990px; z-index: -1; }
+	.graphic.line img { left: 0; position: absolute; top: 0; }
+		
+	.ie6 .awa.biblical #content { height: 1555px; width:990px; }
+	.ie6 .awa.biblical #content_wrap { background-image:none; width: 990px; }
+	
+	.ie6 #content #days p, .ie6 #content #days h1, .ie6 #content #days h2 { color:#403b65 ; }
+	
+	.ie6 #days li:nth-child(1) { left: 0; top: -430px; }
+	.ie6 #days li:nth-child(2) { left: -420px; top: 0px; }
+	.ie6 #days li:nth-child(3) { right: 0; top: 20px;  }
+	.ie6 #days li:nth-child(4) { display: none;  }
+	.ie6 #days li:nth-child(5) { left: -420px; top: 420px;  }
+	.ie6 #days li:nth-child(6) { right: 0; top: 440px;  }
+	.ie6 #days li:nth-child(7) { left: -420px; top: 820px;  }
+	.ie6 #days li:nth-child(8) { right: 0; top: 860px; }
+	.ie6 #days li:nth-child(9) { left: -420px; top: 1200px;    }
+	
+	
+	/* 5.BRANDING/MASTHEAD
+	---------------------------------------------------------------------- */
+	
+	#amazing_wonders .logo { right: 21px; top: 0; z-index: 10; -webkit-transition: .05s linear all; }
+	#amazing_wonders .logo:hover { -moz-transform: scale(1.03) rotate(-2deg); -ms-transform: scale(1.03) rotate(-2deg); -webkit-transform: scale(1.03) rotate(-1deg); transform: scale(1.03) rotate(-2deg); }
+	.no-csstransforms #amazing_wonders .logo:hover { top: 5px; }
+		
+	.awa #header_wrap { background: url(../tiberius/awa/header_bg.jpg) repeat-x 25% 0; }
+	.awa.biblical #header_wrap { background: transparent none; }
+	.awa .logo { float: left; margin: 20px 0 0 20px; }
+	
+	.awa #header { padding-bottom: 68px; }
+	.awa.biblical { padding: 0; }
+	
+	.ie6 .awa #header { padding-bottom: 48px; }
+	
+	/* .awa #intro { float: right; padding: 24px 30px; width: 496px; } */
+	.awa #intro { float: right; width: 556px; } 
+	
+	.awa #intro h1 { font-size: 20px; line-height: 22px; margin-bottom: 12px; }
+	.awa #intro p { font-size: 18px; line-height: 22px; }
+	
+	
+	/* 6.NAVIGATION
+	---------------------------------------------------------------------- */
+	.awa #nav { float:left; padding-top:16px; margin-bottom:30px; overflow:hidden; position:relative; width:100%; }
+	.awa #nav ul { float:left; left:50%; position:relative; text-align:center; }
+	.awa #nav li { position:relative; right:50%; }
+	.awa #nav li, .awa #sec_nav li { float:left; margin-right:20px; }
+		
+	.awa #nav a, .awa #sec_nav a { font-family: Georgia, "Times New Roman", Times, serif; font-size: 16px; font-weight: normal; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; }
+	
+	.awa #nav a { color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,.8); }
+	.awa #sec_nav { float: right; margin-top: 84px; }
+	.awa #sec_nav a { color: #343434; font-size: 14px; text-shadow: 1px 1px 1px rgba(255,255,255,.5); }
+	
+	.awa #nav a:hover, .awa #sec_nav a:hover { color: #c82d2a; }
+	
+	
+	/* 7.SITE INFO/FOOTER
+	---------------------------------------------------------------------- */
+	.awa #footer { background: url(../tiberius/awa/globe_bg.png) no-repeat 100% 100%; margin-top: 140px; min-height: 357px; position:relative; }
+	.ie6 .awa #footer { height: 357px; }
+	
+	.graphic.vbsplane { background: url(../tiberius/awa/vbsplane.png) no-repeat; display: block; height: 242px; position: absolute; right: 0; top: -232px; width: 386px; z-index: 20; }
+	
+	
+/* 2.SPACEQUEST
+---------------------------------------------------------------------- */
+
+
+
+	/* 1.HEADINGS
+	---------------------------------------------------------------------- */
+
+	#space_quest_info h2 { color: #ffe815; }
+	
+	.sq #content p, .sq #content cite { font-size: 16px; line-height:22px; margin-bottom:12px; }
+	.sq #content h2 { color: #6c3f98; font-size: 20px; line-height: 22px;}
+	
+	.sq.biblical #content h1 { color: #ffe815; font-size: 20px; margin-bottom:12px; margin-top: 30px; }
+	.sq.biblical #content h2 { color: #fff; margin-bottom: 5px; }
+	.sq.biblical p { color: #fff; }
+
+	
+
+	/* 2.LINKS
+	---------------------------------------------------------------------- */
+	
+	.home #space_quest_info h2 a:hover, #space_quest a:hover { color: #8c5aa7; }
+	
+	#space_quest a { color: #ffe815; }
+	
+	.sq a { color: #ffe815; }
+	.sq a:hover { color: #fff; }
+	
+	.sq #content a { color: #6c3f98; }
+	.sq #content a:hover { color: #ffe815; }
+	
+	/* 3.tiberius
+	---------------------------------------------------------------------- */
+	
+	.sq #content_wrap .graphic { display:block; position:absolute; }
+	
+	.graphic.top_bar { background:url(../tiberius/sq/top_bar.png) repeat-x; height:31px; top:-10px; width:100%; z-index:5; }
+	.graphic.bottom_bar { background:url(../tiberius/sq/bottom_bar.png) repeat-x; height:31px; bottom:-10px; width:100%; z-index:5; }
+	
+	.sq #biblical_content { background:url(../tiberius/sq/biblical_content.png); display: block; height:228px; position:absolute; right: 0; text-indent: -5000px; top:-90px; width:355px; z-index:20; }
+	.sq #biblical_content:hover { -moz-transform: scale(1.03); -ms-transform: scale(1.03); -webkit-transform: scale(1.03); transform: scale(1.03); }
+	.no-csstransforms .sq #biblical_content:hover { top:-95px; }
+	
+	.graphic.left_gadget { background:url(../tiberius/sq/left_gadget.png) no-repeat; bottom:-65px; height:121px; left:0; width:320px; z-index:20; }
+	.graphic.right_gadget{ background:url(../tiberius/sq/right_gadget.png) no-repeat; bottom:-53px; height:147px; right:0; width:327px; z-index:20; }
+	
+	.graphic.moon { background:url(../tiberius/sq/moon.png) no-repeat; bottom:350px; display:block; height: 192px; left:320px; position:absolute; width:275px; }
+	
+	.sq #planet { bottom: 0; position:absolute; }
+	
+	.graphic.girl_and_dog { background:url(../tiberius/sq/girl_and_dog.png) no-repeat; display: block; height:322px; position:absolute; right:0; top:0; width:449px; }
+	.graphic.rocket_boy { background:url(../tiberius/sq/rocket_boy.png) no-repeat; display:block; height:607px; left:-179px; position:absolute; top: 324px; width:567px; }
+	
+	.graphic.stars1 { background: url(../tiberius/sq/stars1.png) 10% 0; height:708px; left:0; position:absolute; top:0; width:100%; z-index:-1; }
+	.graphic.stars2 { background: url(../tiberius/sq/stars2.png) 30% 10%; height:602px; left:0; position:absolute; top:0; width:100%; z-index:-1; }
+	.graphic.stars3 { background: url(../tiberius/sq/stars3.png) 20% 0; height:514px; bottom:10px; position:absolute; right:0; width:100%; z-index:-1; }
+
+
+	/* 4.LAYOUT
+	---------------------------------------------------------------------- */
+
+	.home #space_quest, #space_quest .logo, #space_quest_info { position: absolute; }
+	
+	.home #space_quest { bottom: 0; left: 0; width: 670px; }
+	#space_quest_info { background-color: rgba(35,42,70,.8); -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 0 10px rgba(71,82,178,.6); -o-box-shadow: 0 0 10px rgba(71,82,178,.6); -webkit-box-shadow: 0 0 10px rgba(71,82,178,.6); padding: 10px; right: 0; text-shadow: 1px 1px 1px rgba(0,0,0,.5); top: 51px; width: 308px; z-index: 20; }
+	.no-rgba #space_quest_info { background-color: #232a46; }
+	
+	#space_quest_info p { color: #fff; font-size: 16px; line-height: 21px; margin-bottom: 12px; }
+	
+	.home #space_quest, #space_quest .logo, #space_quest_info, .graphic.planet_bg, .graphic.stars { position: absolute; }
+	
+	.graphic.planet_bg {
+		background-image: -moz-linear-gradient(bottom, #000, rgba(82,50,122,.5) 50% , rgba(130,97,170,0));
+		background-image: -webkit-gradient(linear, 10% 0%, 0% 100%, from(rgba(130,97,170,0)), to(#000),color-stop(70%,rgba(0,0,0,.8)), color-stop(1,rgba(82,50,122,.5)));
+		background-image: linear-gradient(bottom, #000, rgba(82,50,122,.5) 50% , rgba(130,97,170,0));
+		bottom: 0; height: 610px; display: block; left: 0; width: 100%; z-index:-1; 
+	}
+
+	.home .graphic.stars { background-image: url(../tiberius/home/stars.png); bottom: 0; height: 700px; position: absolute; width: 100%; z-index: -1; }
+	
+	.home .graphic.stars.one { background-image:none; background-position: 0 280px; background-repeat: no-repeat; }
+	.home .graphic.stars.two { background-position: 90% 350px; }
+	.home .graphic.stars.three { background-position: 50% 300px; background-repeat: no-repeat; }
+	
+	.graphic.og { background: url(../tiberius/home/two_options_bg.png) no-repeat; height: 270px; left: -115px; position: absolute; top: 0; width: 832px; z-index: -5; } 
+	
+	.sq { 
+		background-color: #8c5aa7;
+		background-image: -moz-linear-gradient(top, #221536, #4b1f81 25%, #8c5aa7 50%, #4b1f81 75%, #221536);
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#221536), to(#221536),color-stop(25%,#4b1f81), color-stop(50%,#8c5aa7), color-stop(75%,#4b1f81));
+		background-image: linear-gradient(top, #221536, #4b1f81 25%, #8c5aa7 50%, #4b1f81 75%, #221536);
+		position: relative;
+		-webkit-font-smoothing: antialiased;
+	}
+	
+	.sq.biblical { 
+		background-image: -moz-linear-gradient(top, #221536, #4b1f81 25%, #8c5aa7 50%, #4b1f81 75%, #221536);
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#221536), to(#221536),color-stop(25%,#4b1f81), color-stop(40%,#8c5aa7), color-stop(60%,#8c5aa7), color-stop(75%,#4b1f81));
+		background-image: linear-gradient(top, #221536, #4b1f81 25%, #8c5aa7 50%, #4b1f81 75%, #221536);
+	}
+	
+	.graphic.gradient_top { background: url(../tiberius/sq/sq_bg_top.png) repeat-x 0 0; display:block; height:520px; left:0; position:absolute; top: 0; width:100%; z-index:-2;}
+	.graphic.gradient_bottom { background: #8c5aa7 url(../tiberius/sq/sq_bg_bottom.png) repeat-x 0 100%; bottom:0; display:block; left:0; height:520px; position:absolute; width:100%; z-index:-2;}
+	
+	/* .no-cssgradients .sq { background: #8c5aa7 url(../tiberius/sq/sq_bg_bottom.png) repeat-x 0 100%; position:relative; z-index:-2;} */
+		
+	.sq #header, .sq #content, .sq #footer, .sq.biblical #content_wrap { clear: both; margin: 0 auto; position: relative; width: 990px; }
+	
+	.sq #content_wrap { background-color: #61ba33; position:relative; }
+	.sq.biblical #content_wrap { background:transparent url(../tiberius/sq/stars1.png) repeat 0 0; margin-top:165px; text-shadow:1px 1px 1px rgba(0,0,0,.5); }
+	
+	.sq.biblical #content { float:right; margin-right:133px; width:420px; }
+		
+	.sq #content { padding-bottom:103px; padding-top:91px; text-shadow: 1px 1px 3px rgba(255,255,255,.3); }
+	.sq.biblical #content { padding-bottom: 0; }
+	
+	.ie6 .sq.biblical #content { margin: 0 50px -180px 0; width: 420px; }
+	
+	.ie6 .col { padding: 0; }
+	
+	
+	
+	/* 5.BRANDING/MASTHEAD
+	---------------------------------------------------------------------- */
+	#space_quest .logo { height: 488px; left: -80px; position: absolute; top: -270px; width: 617px; z-index: 10; 
+	-webkit-transition: .05s linear all; }
+	#space_quest .logo:hover { -moz-transform: scale(1.03) rotate(2deg); -ms-transform: scale(1.03) rotate(2deg); -webkit-transform: scale(1.03) rotate(2deg); transform: scale(1.03) rotate(2deg); }
+	.no-csstransforms #space_quest .logo:hover { top: -275px; }
+	
+	
+	.sq #header { padding-bottom:40px; }
+	
+	.sq .logo { left: -64px; position: absolute; top: 20px; z-index: 50; }
+	
+	.sq #intro { color: #fff; float: right; padding: 98px 0 54px; text-shadow: 1px 1px rgba(0,0,0,.5); width: 476px; }
+	
+	.sq #intro h1 { font-size: 30px; line-height: 32px; margin-bottom: 12px; }
+	.sq #intro p { font-size: 20px; line-height: 24px; margin-bottom: 12px; }
+	
+	/* 6.NAVIGATION
+	---------------------------------------------------------------------- */
+	.sq #nav { float:left; padding-top:16px; overflow:hidden; position:relative; width:100%; z-index: 100; }
+	.sq #nav ul { float:left; left:50%; position:relative; text-align:center; }
+	.sq #nav li { position:relative; right:50%; }
+	
+	.sq #nav li, .sq #sec_nav li { float:left; margin-right:20px; }
+	.sq #nav a, .sq #sec_nav a { color:#fff; color:rgba(255,255,255,.8); font-size:16px; font-weight:bold; letter-spacing:1px; text-decoration:none; text-shadow:1px 1px 1px rgba(0,0,0,.8); text-transform:uppercase; }
+	.no-rgba .sq #nav a, .sq #sec_nav a { color: #fff; }
+	
+	.sq #nav a:hover, .sq #sec_nav a:hover { color:#ffe815; }
+
+	.sq #sec_nav { float:right; margin-top:280px; position:relative; z-index:20; }
+	.sq #sec_nav a { font-size:14px; }
+	
+	/* 7.SITE INFO/FOOTER
+	---------------------------------------------------------------------- */
+	.sq #footer { min-height:580px; }
+	.ie6 .sq #footer { height:580px; }
+
+/* 3.SITE WIDE
+---------------------------------------------------------------------- */
+
+.home h2 { font-size: 20px; line-height: 22px; margin-bottom: 7px; }
+.home h2 a { text-decoration: none; }
+
+#lifeway_vbs {
+	background: url(../tiberius/global/lifeway_vbs.png) no-repeat 0 0;
+	bottom: 115px;
+	display: block;
+	height: 53px;
+	position: absolute;
+	right: 0;
+	width: 206px;
+	z-index: 10;
+}
+
+.col { float: left; padding: 0 15px; position: relative; width: 300px; z-index: 100; }
+
+.graphic.bg_fade { background: url(../tiberius/home/bg_fade.png) no-repeat 0 0; bottom:120px; display:block; height: 365px; position: absolute; width: 405px; right:0; }
+
+#which_vbs { bottom: 285px; color: #fff; display: block; font-size:16px; padding: 10px; position: absolute; text-decoration:none; right: 50px; width: 160px; z-index: 50;
+	background-color: rgba(35,42,70,.8); -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 0 10px rgba(71,82,178,.6); -o-box-shadow: 0 0 10px rgba(71,82,178,.6); -webkit-box-shadow: 0 0 10px rgba(71,82,178,.6); text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+
+.no-rgba #which_vbs { background-color:#232a46; }
+
+#which_vbs:hover { background-color: rgba(219,235,240,.8); color: #232a46; text-shadow:none; }
+.no-rgba #which_vbs:hover { background-color: #fff; }
+
+
+#email_signup {
+	bottom: 205px;
+	display: block;
+	height: 53px;
+	position: absolute;
+	right: 20px;
+	width: 288px;
+	z-index: 10;
+}
+
+label { color: #fff; display: block; font-size: 14px; font-weight:bold; margin-bottom:5px; text-shadow:1px 1px 1px rgba(0,0,0,.5); }
+input[type="text"] { border: 1px solid #fff; float: left; font-size: 14px; height: 14px; padding: 3px 5px; margin: 0; width:160px; }
+input[type="submit"] { background-color: #2b314e; border: 1px solid #2b314e; color:#fff; height: 22px; float: left; font-size: 12px; margin:0; padding: 2px 5px 4px; text-transform:uppercase; }
+input[type="submit"]:hover { background-color:#fff; border: 1px solid #fff; border-left: 1px solid #2b314e; color:#232a46; cursor: pointer; }
+
+.ie7 input[type="submit"] { width: 90px; }
+
+
+/* 4.UTILITIES
+---------------------------------------------------------------------- */
+/* self-clear floats */
+
+.group:after {
+	content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+    
+/* and for IE7...not too pretty, huh? */
+
+*:first-child+html .group,
+*:first-child+html div.article-body,
+*:first-child+html #wrap {
+	min-height: 1px;
+}
+
+.left { float:left; margin: 0 20px 20px 0; }
+
+.download { float:left; margin-right:10px; text-align:center; width:134px; }
+
+/* ie fixes */
+
+.ie6 .sq #content, .ie7 .sq #content, .ie8 .sq #content, .ie9 .sq #content,
+.ie6 #footer, .ie7 #footer, .ie8 #footer, .ie9 #footer,
+.ie7 #lifeway_vbs, .ie8 #lifeway_vbs, .ie9 #lifeway_vbs { z-index: 100; } 
+
+/* 5.COLORBOX
+---------------------------------------------------------------------- */
+
+
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+#cboxOverlay{background:#fef8ef;}
+	#cboxTopLeft, #cboxTopRight, #cboxBottomLeft, #cboxBottomRight { height:29px; position:absolute; width:29px; z-index:50; }
+    #cboxTopLeft{left:10px; top:10px; width:28px; background:url(../tiberius/colorbox/border1.png) no-repeat 0 0;}
+    #cboxTopCenter{height:25px; margin-left:25px; background:url(../tiberius/colorbox/border1.png) repeat-x 0 -61px;}
+    #cboxTopRight{right:10px; top:10px; background:url(../tiberius/colorbox/border1.png) no-repeat -28px 0;}
+    #cboxBottomLeft{ left:10px; bottom:10px; background:url(../tiberius/colorbox/border1.png) no-repeat 0 -29px;}
+    #cboxBottomCenter{ height:25px; margin-left:25px; background:url(../tiberius/colorbox/border1.png) repeat-x 0 -85px;}
+    #cboxBottomRight{ right:10px; bottom:10px; height:30px; width:30px; background:url(../tiberius/colorbox/border1.png) no-repeat -29px -29px;}
+    #cboxMiddleLeft{width:25px; background:url(../tiberius/colorbox/border2.png) repeat-y 0 0;}
+    #cboxMiddleRight{width:25px; background:url(../tiberius/colorbox/border2.png) repeat-y -25px 0;}
+    #cboxContent{ background: #fceccd url(../tiberius/awa/texture.png); overflow:hidden;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{margin-bottom:20px;}
+        #cboxTitle{position:absolute; bottom:0px; left:0; text-align:center; width:100%; color:#999;}
+        #cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}
+        #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}
+        #cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}
+        #cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
+        #cboxLoadingOverlay{background:#fff url(../tiberius/colorbox/loading.gif) no-repeat 5px 5px;}
+        #cboxClose{position:absolute; bottom:3px; right:10px; display:block; color:#c82d2a;}
+		#cboxClose:hover { color: #013968; }
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to IE9.
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
+
+/*
+  The following provides PNG transparency support for IE6
+*/
+.cboxIE6 #cboxTopLeft{background:url(../tiberius/colorbox/ie6/borderTopLeft.png);}
+.cboxIE6 #cboxTopCenter{background:url(../tiberius/colorbox/ie6/borderTopCenter.png);}
+.cboxIE6 #cboxTopRight{background:url(../tiberius/colorbox/ie6/borderTopRight.png);}
+.cboxIE6 #cboxBottomLeft{background:url(../tiberius/colorbox/ie6/borderBottomLeft.png);}
+.cboxIE6 #cboxBottomCenter{background:url(../tiberius/colorbox/ie6/borderBottomCenter.png);}
+.cboxIE6 #cboxBottomRight{background:url(../tiberius/colorbox/ie6/borderBottomRight.png);}
+.cboxIE6 #cboxMiddleLeft{background:url(../tiberius/colorbox/ie6/borderMiddleLeft.png);}
+.cboxIE6 #cboxMiddleRight{background:url(../tiberius/colorbox/ie6/borderMiddleRight.png);}
+
+.cboxIE6 #cboxTopLeft,
+.cboxIE6 #cboxTopCenter,
+.cboxIE6 #cboxTopRight,
+.cboxIE6 #cboxBottomLeft,
+.cboxIE6 #cboxBottomCenter,
+.cboxIE6 #cboxBottomRight,
+.cboxIE6 #cboxMiddleLeft,
+.cboxIE6 #cboxMiddleRight {
+    _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
+}
+
+
+
+/* 8.PRINTING
+---------------------------------------------------------------------- */
+
+@media print {
+  /** { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+    a, a:visited { color: #444 !important; text-decoration: underline; }
+    a:after { content: " (" attr(href) ")"; } 
+    abbr:after { content: " (" attr(title) ")"; }
+    pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+    thead { display: table-header-group; }
+    tr, img { page-break-inside: avoid; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3{ page-break-after: avoid; }*/
+}
