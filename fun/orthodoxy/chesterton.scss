@@ -51,7 +51,7 @@ body {
 	font-family:$font;
 	@include font-size(16);
 	line-height:$base-line-height;
-	-mox-hyphens:auto;
+	-moz-hyphens:auto;
 	-webkit-hyphens:auto;
 	hyphens:auto;
 }
