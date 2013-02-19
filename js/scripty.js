@@ -19,7 +19,7 @@ var article_highlight = function(){
 	});
 };
 
-if(articleList === 0) {
+if(!articleList) {
 	$(window).load(function(){
 		$('article:first-child').addClass('active');
 		article_highlight();
@@ -28,6 +28,6 @@ if(articleList === 0) {
 	}).resize(function(){
 		article_highlight();
 	});
-} else if(articleList > 0)  {
+} else {
 	$article.addClass('active');
 }
