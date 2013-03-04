@@ -1,0 +1,539 @@
+---
+---
+
+@import "mixins";
+
+$base-color: #333;
+
+$base-font-size:         16;
+$proxima-nova:           proxima-nova, "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+$proxima-nova-condensed: proxima-nova-condensed, "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$ff-tisa:                "ff-tisa-web-pro", Georgia, sans-serif;
+
+
+/* i.RESET
+---------------------------------------------------------------------- */
+// http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain)
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+
+// make new blocky elements blocky
+article, aside, dialog, figure, footer, header, hgroup, nav, section { display : block; }
+
+/* global
+---------------------------------------------------------------------- */
+
+body{
+	color:$base-color;
+	font: 400 100%/1.5 #{$ff-tisa};
+	background:#f8f8f8;
+	/* I like to line stuff up sometimes */
+	// background: url(../grid.png) repeat-y 42px 0;
+	// background:url(../images/large-monitor.png) no-repeat 1500px 360px;
+}
+
+
+/* headings
+---------------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { font-family: #{$proxima-nova}; }
+
+h1 {
+	font-size:36px;
+	font-size:(36rem / $base-font-size);
+	font-weight:700;
+	line-height:(36 / 36);
+	margin-bottom:24px;
+}
+
+h1,h2{
+	a { text-decoration:none; }
+}
+
+.article-list h2 {
+	font-weight:700;
+}
+
+h2 {
+	font-size:21px;
+	font-size:(21rem / $base-font-size);
+	margin-top:32px;
+}
+
+.filed {
+	border-top:1px solid #ccc;
+	color:#999;
+	font-family:#{$proxima-nova};
+	font-size:11px;
+	font-size:(11rem / $base-font-size);
+	font-weight:700;
+	letter-spacing:1px;
+	margin-top:48px;
+	padding-top:12px;
+	text-transform:uppercase;
+}
+
+em {
+	font-style:italic;
+}
+
+
+/* typography
+---------------------------------------------------------------------- */
+
+p {
+	line-height:1.5; /* 24 / 16 */
+}
+
+p + p, .note + p { text-indent:1.5em; }
+
+.journal p, .blockquote p {
+	@include hyphens;
+}
+
+a { color:#000; }
+a:hover { background:#000; color:#fff; }
+
+ul li { list-style:disc; }
+
+.tags li {
+	float:left;
+	font-family:#{$proxima-nova};
+	font-size:11px;
+	font-size:.6875rem; /*  11 / 16  */
+	list-style:none;
+	margin-right:7px;
+}
+
+.tags a { padding:0 2px; text-decoration:none; }
+.tags a:hover { background:#000; color:#fff; }
+
+time {
+	font-family:#{$proxima-nova-condensed};
+	font-size:18px;
+	font-size:(18rem / $base-font-size); /*  18 / 16  */
+	font-weight:200;
+	color:#666;
+	display:block;
+	letter-spacing:1px;
+}
+
+cite { font-style:italic; }
+
+.note {
+	@include box-sizing;
+	margin-bottom:12px;
+	margin-top:12px;
+	padding:12px;
+}
+
+.note p {
+	color:#999;
+	font-family:#{$proxima-nova};
+	font-size:14px;
+	font-size:.875rem; /*  14 / 16  */
+}
+
+header[role="banner"] p, footer[role="contentinfo"] p {
+	color:#fff;
+	float:left;
+	font-family: #{$proxima-nova};
+	font-size:18px;
+	font-size:1.125rem; /*  18 / 16  */
+	margin:32px 20px;
+}
+
+footer[role="contentinfo"] a { color:#fff; }
+footer[role="contentinfo"] a:hover { background:#fff; color:#000; }
+
+.quote .source a {
+	font-family:#{$proxima-nova};
+	font-size:18px;
+	font-size:1.125rem; /*  18 / 16  */
+	text-decoration:none;
+	white-space:nowrap;
+}
+
+
+/* navigation
+---------------------------------------------------------------------- */
+nav li { list-style:none; }
+
+nav a,.pagination {
+	color:#fff;
+	font-family:#{$proxima-nova};
+	font-size:14px;
+	font-size:.875rem; /*  14 / 16  */
+	font-weight:700;
+	padding: 3px 5px;
+	letter-spacing:1px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+nav a:hover { background-color:#000; color: #fff; }
+
+.pagination {
+	color:#000;
+	float:left;
+	margin:75px 36px 0 0;
+}
+
+/* layout
+---------------------------------------------------------------------- */
+
+div[role="main"], footer[role="contentinfo"] {
+	background-color:#fff;
+	padding:24px;
+	position:relative;
+	z-index:2;
+}
+
+.wrap {
+	min-height:140px;
+	position:relative;
+}
+
+article { padding: 24px 0;}
+
+header[role="banner"], footer[role="contentinfo"] { background-color:#000; }
+
+.meta { margin-bottom:4px; }
+
+img { max-width:100%; }
+
+.js article.active {
+	color:#000;
+	a {
+		color:#000;
+		&:hover {
+			background:#000;
+			color:#fff;
+		}
+	}
+	time {
+		color: #333;
+	}
+}
+
+
+
+/* helpers
+---------------------------------------------------------------------- */
+// clearfix
+// http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/
+.group:before, .group:after { content:"\0020"; display:block; height:0; overflow:hidden; }
+.group:after { clear:both; }
+.group { zoom:1; }
+
+
+
+/* media queries
+---------------------------------------------------------------------- */
+/* 540px */
+@media only screen and (min-width: 540px) {
+	.note { float:right; margin-left:20px; }
+	.one, .one-alt, .two, .three, .four { width: 194px; }
+}
+
+/* 768px */
+@media only screen and (min-width: 820px) {
+
+	div[role="main"], header[role="banner"], footer[role="contentinfo"], .wrap {
+		@include box-sizing;
+		max-width:54.375em; /* 870px / 16 */
+		margin:0;
+		padding-right:48px;
+	}
+
+	.wrap { margin-bottom:0; padding:0; }
+
+	header[role="banner"], footer[role="contentinfo"] { padding-left:42px; }
+
+	header[role="banner"] { position:fixed; }
+
+	header[role="banner"] p, footer[role="contentinfo"] p {
+		float:left;
+		margin-left:24px;
+		margin-top:32px;
+		width:71.7241379%;
+	}
+
+	div[role="main"] { border-right:1px solid #eee; margin-top:0; padding:96px 48px 80px 42px; }
+
+	footer[role="contentinfo"] { bottom:0; width:54.375em; z-index:1; }
+
+	nav {
+		float:right;
+		margin-top:32px;
+		width:190px;
+	}
+
+
+	/* ------- all articles -------- */
+	article {
+		border-top:none;
+		clear:both;
+		margin-top:200px;
+		padding: 1.5em 1.5em 1.5em 144px; /* 24px */ /* 170 or 150 */
+		position:relative;
+	}
+
+	article:first-child { margin-top:0; }
+
+	.one { width:149px; }
+	.one-alt { width:194px; }
+	.two { width:318px; }
+	.three { width:487px; }
+	.four { width:656px; }
+	.journal blockquote, .link blockquote { border-left:8px solid #000; margin: 0 48px 24px 0; padding-left:40px; }
+	.journal p + blockquote, .link p + blockquote { margin-top:1.5em; }
+
+	.journal blockquote p,
+	.journal blockquote li,
+	.link blockquote p,
+	.link blockquote li {
+		color: #666;
+		font-family:#{$proxima-nova};
+	}
+
+	time {
+		font-weight:400;
+		left:21px;
+		margin:0;
+		position:absolute;
+		top:25px;
+		@include transform-origin(top left);
+		@include transform-rotate(90deg);
+	}
+
+	.article-list h2 {
+		margin:0;
+	}
+
+	.article-list time {
+		position:static;
+		@include transform(none);
+	}
+
+	.js article,
+	.js article a,
+	.js time {
+		color:#999;
+	}
+
+	.js .journal blockquote,
+	.js .link blockquote {
+		border-color:#999;
+	}
+
+	.js .journal.active blockquote,
+	.js .link.active blockquote {
+		border-color:#000;
+	}
+	.js .journal.active .note { background:#000; }
+	.js .journal blockquote p, .js .journal blockquote li, .js .link blockquote p, .js .link blockquote li { color: #999; }
+
+	.js .journal.active blockquote p,
+	.js .journal.active blockquote li,
+	.js link.active blockquote p,
+	.js .link.active blockquote li {
+		color: #666;
+	}
+
+	.js .meta { border-color:#999; }
+	.js .active .meta { border-color:#000; }
+
+	.js article img { opacity:.5; }
+	.js article.active img { opacity:1; }
+
+	.meta {
+		border-top:8px solid black;
+		font-size:11px;
+		font-size:.6875rem; /*  11 / 16  */
+		left:0;
+		padding:64px 12px 0;
+		position:absolute;
+		top:0;
+		width:32px;
+	}
+
+	.js article, .js .meta {
+		@include transition(color 0.3s ease-in);
+	}
+
+	.js .meta {
+		@include transition((border-color 0.3s ease-in, background 0.3s ease-in));
+		background-repeat:no-repeat; background-position:100% -60px;
+	}
+
+	.note {
+		background:#999;
+		@include transition(background .15s linear);
+	}
+
+	.note p {
+		color:#fff;
+	}
+
+	.js .journal.active .meta {
+		background-image:url(../images/journal-icon.png);
+		background-position: 100% 21px;
+		border-color:#ff8f52;
+	}
+
+	.js .quote.active .meta {
+		background-image:url(../images/quote-icon.png);
+		background-position: 100% 26px;
+		border-color:#5698ff;
+	}
+	.js .link.active .meta {
+		background-image:url(../images/link-icon.png);
+		background-position: 100% 20px;
+		border-color:#7fd75b;
+	}
+	.js .sketch.active .meta {
+		background-image:url(../images/sketch-icon.png);
+		background-position: 100% 21px;
+		border-color:#fe6a6a;
+	}
+	.js .photo.active .meta {
+		background-image:url(../images/photo-icon.png);
+		background-position: 100% 19px;
+		border-color: #ffed00;
+	}
+
+	/* ------- quote articles -------- */
+	.quote blockquote p {
+		font-size:20px;
+		font-size:1.25rem; /*  20 / 16  */
+		margin:24px 0 18px 0;
+		padding-right:20px;
+		width:444px;
+	}
+
+	/* ------- sketch articles -------- */
+	.sketch img {
+		float:left;
+		margin-right: 32px;
+	}
+}
+
+/* 960px */
+@media only screen and (min-width: 1080px) {
+	.out { margin-left:0; margin-right:-214px; }
+}
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0,0%,100%,.5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+
+.token.regex,
+.token.important {
+	color: #e90;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	cursor: help;
+}
