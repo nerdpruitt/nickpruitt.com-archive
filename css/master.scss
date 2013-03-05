@@ -78,9 +78,7 @@ h1,h2{
 }
 
 h2 {
-    font-size:21px;
-    font-size:(21rem / $base-font-size);
-    margin-top:32px;
+    @include font-size(21);
 }
 
 .filed {
@@ -177,21 +175,34 @@ header[role="banner"] p, footer[role="contentinfo"] p {
     li {
         // display:inline-block;
         list-style:none;
+        // this is contained inside db2-db4-in-d2-d6 *inception sound*
+        &:nth-child(odd),
+        &:nth-child(even){
+            float: left;
+            margin-right: -100%;
+            width: percentage(37.4884152% / 92.586%);
+        }
         &:nth-child(odd){
             clear:left;
-            width: 37.4884152%;
-            margin-left: 8.34105653%;
-            float: left;
-            margin-right: -100%;
-
+            margin-left: 5%;
         }
         &:nth-child(even){
-            width: 37.4884152%;
             margin-left: 54.17052827%;
-            float: left;
-            margin-right: -100%;
         }
     }
+}
+
+.home .toc {
+    @extend %db2-db4-in-d2-d6;
+    border-top:3px solid #333;
+    margin-top:24px;
+}
+
+.toc-heading {
+    @include font-size(14);
+    letter-spacing:2px;
+    margin:2.5% 5%;
+    text-transform:uppercase;
 }
 
 // Layout ---------------------------------------------------------- */
@@ -346,4 +357,8 @@ pre[class*="language-"] {
 
 .intro {
     @extend %db2-db3-in-d2-d6;
+    p {
+        font-size:24px;
+        font-style:italic;
+    }
 }
