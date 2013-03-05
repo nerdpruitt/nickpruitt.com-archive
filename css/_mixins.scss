@@ -1,37 +1,44 @@
 @mixin hyphens {
- -webkit-hyphens: auto;
+	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-	     hyphens: auto;
+	hyphens: auto;
 }
 
 @mixin transform-origin($side) {
-       -moz-transform-origin:$side;
+	-moz-transform-origin:$side;
 	-webkit-transform-origin:$side;
-	        transform-origin:$side;
+	transform-origin:$side;
 }
 
 @mixin transform-rotate($degrees) {
-	   -moz-transform:rotate($degrees);
+	-moz-transform:rotate($degrees);
 	-webkit-transform:rotate($degrees);
-	        transform:rotate($degrees);
+	transform:rotate($degrees);
 }
 
 @mixin transform($value) {
-	   -moz-transform:$value;
+	-moz-transform:$value;
 	-webkit-transform:$value;
-	        transform:$value;
+	transform:$value;
 }
 
 // Transitions
 @mixin transition($transition) {
+<<<<<<< HEAD
 	   -moz-transition: $transition;
 	-webkit-transition: $transition;
 	        transition: $transition;
+=======
+	-moz-transition: $transition;
+	-webkit-transition: $transition;
+	transition: $transition;
+>>>>>>> Gridset Beginnings
 }
 
 @mixin box-sizing($box: border-box) {
-	   -moz-box-sizing: $box;
+	-moz-box-sizing: $box;
 	-webkit-box-sizing: $box;
+<<<<<<< HEAD
 	        box-sizing: $box;
 }
 
@@ -41,4 +48,17 @@
     display: table;
     clear: both;
   }
+=======
+	box-sizing: $box;
+}
+
+// go ahead, beat this clearfix
+// http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+%cf {
+	&:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+>>>>>>> Gridset Beginnings
 }

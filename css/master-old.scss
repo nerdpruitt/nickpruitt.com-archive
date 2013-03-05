@@ -11,11 +11,6 @@ $proxima-nova-condensed: proxima-nova-condensed, "Arial Narrow", "Helvetica Neue
 $ff-tisa:                "ff-tisa-web-pro", Georgia, sans-serif;
 
 
-@mixin font-size($font-size) {
-  font-size: $font-size + px;
-  font-size: ($font-size / $base-font-size) + rem;
-}
-
 /* i.RESET
 ---------------------------------------------------------------------- */
 // http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain)
@@ -25,7 +20,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body { line-height:1; }
 ol, ul { list-style:none; }
 blockquote, q { quotes:none; }
-// blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
 table { border-collapse:collapse; border-spacing:0; }
 
 // make new blocky elements blocky
@@ -35,17 +30,14 @@ article, aside, dialog, figure, footer, header, hgroup, nav, section { display :
 ---------------------------------------------------------------------- */
 
 body{
-    color:$base-color;
-    font: 400 100%/1.5 #{$ff-tisa};
-    background:#f8f8f8;
-    /* I like to line stuff up sometimes */
-    // background: url(../grid.png) repeat-y 42px 0;
-    // background:url(../images/large-monitor.png) no-repeat 1500px 360px;
+	color:$base-color;
+	font: 400 100%/1.5 #{$ff-tisa};
+	background:#f8f8f8;
+	/* I like to line stuff up sometimes */
+	// background: url(../grid.png) repeat-y 42px 0;
+	// background:url(../images/large-monitor.png) no-repeat 1500px 360px;
 }
 
-*, *:before, *:after {
-    @include box-sizing();
-}
 
 /* headings
 ---------------------------------------------------------------------- */
@@ -53,42 +45,42 @@ body{
 h1,h2,h3,h4,h5,h6 { font-family: #{$proxima-nova}; }
 
 h1 {
-    font-size:36px;
-    font-size:(36rem / $base-font-size);
-    font-weight:700;
-    line-height:(36 / 36);
-    margin-bottom:24px;
+	font-size:36px;
+	font-size:(36rem / $base-font-size);
+	font-weight:700;
+	line-height:(36 / 36);
+	margin-bottom:24px;
 }
 
 h1,h2{
-    a { text-decoration:none; }
+	a { text-decoration:none; }
 }
 
 .article-list h2 {
-    font-weight:700;
+	font-weight:700;
 }
 
 h2 {
-    font-size:21px;
-    font-size:(21rem / $base-font-size);
-    margin-top:32px;
+	font-size:21px;
+	font-size:(21rem / $base-font-size);
+	margin-top:32px;
 }
 
 .filed {
-    border-top:1px solid #ccc;
-    color:#999;
-    font-family:#{$proxima-nova};
-    font-size:11px;
-    font-size:(11rem / $base-font-size);
-    font-weight:700;
-    letter-spacing:1px;
-    margin-top:48px;
-    padding-top:12px;
-    text-transform:uppercase;
+	border-top:1px solid #ccc;
+	color:#999;
+	font-family:#{$proxima-nova};
+	font-size:11px;
+	font-size:(11rem / $base-font-size);
+	font-weight:700;
+	letter-spacing:1px;
+	margin-top:48px;
+	padding-top:12px;
+	text-transform:uppercase;
 }
 
 em {
-    font-style:italic;
+	font-style:italic;
 }
 
 
@@ -96,14 +88,13 @@ em {
 ---------------------------------------------------------------------- */
 
 p {
-    @include font-size(21);
-    line-height:1.5;
+	line-height:1.5; /* 24 / 16 */
 }
 
 p + p, .note + p { text-indent:1.5em; }
 
 .journal p, .blockquote p {
-    @include hyphens;
+	@include hyphens;
 }
 
 a { color:#000; }
@@ -112,89 +103,102 @@ a:hover { background:#000; color:#fff; }
 ul li { list-style:disc; }
 
 .tags li {
-    float:left;
-    font-family:#{$proxima-nova};
-    font-size:11px;
-    font-size:.6875rem; /*  11 / 16  */
-    list-style:none;
-    margin-right:7px;
+	float:left;
+	font-family:#{$proxima-nova};
+	font-size:11px;
+	font-size:.6875rem; /*  11 / 16  */
+	list-style:none;
+	margin-right:7px;
 }
 
 .tags a { padding:0 2px; text-decoration:none; }
 .tags a:hover { background:#000; color:#fff; }
 
 time {
-    font-family:#{$proxima-nova-condensed};
-    font-size:18px;
-    font-size:(18rem / $base-font-size); /*  18 / 16  */
-    font-weight:200;
-    color:#666;
-    display:block;
-    letter-spacing:1px;
+	font-family:#{$proxima-nova-condensed};
+	font-size:18px;
+	font-size:(18rem / $base-font-size); /*  18 / 16  */
+	font-weight:200;
+	color:#666;
+	display:block;
+	letter-spacing:1px;
 }
 
 cite { font-style:italic; }
 
 .note {
-    @include box-sizing;
-    margin-bottom:12px;
-    margin-top:12px;
-    padding:12px;
+	@include box-sizing;
+	margin-bottom:12px;
+	margin-top:12px;
+	padding:12px;
 }
 
 .note p {
-    color:#999;
-    font-family:#{$proxima-nova};
-    font-size:14px;
-    font-size:.875rem; /*  14 / 16  */
+	color:#999;
+	font-family:#{$proxima-nova};
+	font-size:14px;
+	font-size:.875rem; /*  14 / 16  */
 }
 
 header[role="banner"] p, footer[role="contentinfo"] p {
-    font-family: #{$proxima-nova};
-    font-size:18px;
-    font-size:1.125rem; /*  18 / 16  */
-    margin:32px 0;
+	color:#fff;
+	float:left;
+	font-family: #{$proxima-nova};
+	font-size:18px;
+	font-size:1.125rem; /*  18 / 16  */
+	margin:32px 20px;
 }
 
 footer[role="contentinfo"] a { color:#fff; }
 footer[role="contentinfo"] a:hover { background:#fff; color:#000; }
 
 .quote .source a {
-    font-family:#{$proxima-nova};
-    font-size:18px;
-    font-size:1.125rem; /*  18 / 16  */
-    text-decoration:none;
-    white-space:nowrap;
+	font-family:#{$proxima-nova};
+	font-size:18px;
+	font-size:1.125rem; /*  18 / 16  */
+	text-decoration:none;
+	white-space:nowrap;
 }
 
-footer[role="contentinfo"] {
-    clear:both;
+
+/* navigation
+---------------------------------------------------------------------- */
+nav li { list-style:none; }
+
+nav a,.pagination {
+	color:#fff;
+	font-family:#{$proxima-nova};
+	font-size:14px;
+	font-size:.875rem; /*  14 / 16  */
+	font-weight:700;
+	padding: 3px 5px;
+	letter-spacing:1px;
+	text-decoration:none;
+	text-transform:uppercase;
 }
 
-header[role="banner"] {
-    background:#000;
-    clear:both;
-    color:#fff;
-    @extend %cf;
-    padding:24px;
+nav a:hover { background-color:#000; color: #fff; }
+
+.pagination {
+	color:#000;
+	float:left;
+	margin:75px 36px 0 0;
 }
 
-<<<<<<< HEAD
-#main {
-    clear:both;
-}
-
-=======
 /* layout
 ---------------------------------------------------------------------- */
 
 div[role="main"], footer[role="contentinfo"] {
 	background-color:#fff;
-	// padding:24px;
+	padding:24px;
 	position:relative;
 	z-index:2;
 }
 
+.wrap {
+	min-height:140px;
+	position:relative;
+}
 
 article { padding: 24px 0;}
 
@@ -222,7 +226,11 @@ img { max-width:100%; }
 
 /* helpers
 ---------------------------------------------------------------------- */
-
+// clearfix
+// http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/
+.group:before, .group:after { content:"\0020"; display:block; height:0; overflow:hidden; }
+.group:after { clear:both; }
+.group { zoom:1; }
 
 
 
@@ -421,7 +429,6 @@ img { max-width:100%; }
 @media only screen and (min-width: 1080px) {
 	.out { margin-left:0; margin-right:-214px; }
 }
->>>>>>> Gridset Beginnings
 
 /**
  * prism.js default theme for JavaScript, CSS and HTML
@@ -431,75 +438,75 @@ img { max-width:100%; }
 
 code[class*="language-"],
 pre[class*="language-"] {
-    color: black;
-    text-shadow: 0 1px white;
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
 
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
 
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
 
 @media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
-        text-shadow: none;
-    }
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
 }
 
 /* Code blocks */
 pre[class*="language-"] {
-    padding: 1em;
-    margin: .5em 0;
-    overflow: auto;
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-    background: #f5f2f0;
+	background: #f5f2f0;
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-    padding: .1em;
-    border-radius: .3em;
+	padding: .1em;
+	border-radius: .3em;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: slategray;
+	color: slategray;
 }
 
 .token.punctuation {
-    color: #999;
+	color: #999;
 }
 
 .namespace {
-    opacity: .7;
+	opacity: .7;
 }
 
 .token.property,
 .token.tag,
 .token.boolean,
 .token.number {
-    color: #905;
+	color: #905;
 }
 
 .token.selector,
 .token.attr-name,
 .token.string {
-    color: #690;
+	color: #690;
 }
 
 .token.operator,
@@ -507,26 +514,26 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-    color: #a67f59;
-    background: hsla(0,0%,100%,.5);
+	color: #a67f59;
+	background: hsla(0,0%,100%,.5);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-    color: #07a;
+	color: #07a;
 }
 
 
 .token.regex,
 .token.important {
-    color: #e90;
+	color: #e90;
 }
 
 .token.important {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .token.entity {
-    cursor: help;
+	cursor: help;
 }
