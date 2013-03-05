@@ -167,38 +167,29 @@ footer[role="contentinfo"] a:hover { background:#fff; color:#000; }
     white-space:nowrap;
 }
 
-footer[role="contentinfo"] {
+header[role="banner"], #main, footer[role="contentinfo"] {
     clear:both;
-}
-
-header[role="banner"] {
-    background:#000;
-    clear:both;
-    color:#fff;
     @extend %cf;
-    padding:24px;
+}
+.wrapper {
+	width:100%;
 }
 
-<<<<<<< HEAD
-#main {
-    clear:both;
-}
-
-=======
 /* layout
 ---------------------------------------------------------------------- */
 
-div[role="main"], footer[role="contentinfo"] {
+div[role="main"] {
 	background-color:#fff;
 	// padding:24px;
 	position:relative;
 	z-index:2;
 }
 
+article {
+	@extend %cf;
+	padding: 24px 0;
+}
 
-article { padding: 24px 0;}
-
-header[role="banner"], footer[role="contentinfo"] { background-color:#000; }
 
 .meta { margin-bottom:4px; }
 
@@ -218,210 +209,6 @@ img { max-width:100%; }
 	}
 }
 
-
-
-/* helpers
----------------------------------------------------------------------- */
-
-
-
-
-/* media queries
----------------------------------------------------------------------- */
-/* 540px */
-@media only screen and (min-width: 540px) {
-	.note { float:right; margin-left:20px; }
-	.one, .one-alt, .two, .three, .four { width: 194px; }
-}
-
-/* 768px */
-@media only screen and (min-width: 820px) {
-
-	div[role="main"], header[role="banner"], footer[role="contentinfo"], .wrap {
-		@include box-sizing;
-		max-width:54.375em; /* 870px / 16 */
-		margin:0;
-		padding-right:48px;
-	}
-
-	.wrap { margin-bottom:0; padding:0; }
-
-	header[role="banner"], footer[role="contentinfo"] { padding-left:42px; }
-
-	header[role="banner"] { position:fixed; }
-
-	header[role="banner"] p, footer[role="contentinfo"] p {
-		float:left;
-		margin-left:24px;
-		margin-top:32px;
-		width:71.7241379%;
-	}
-
-	div[role="main"] { border-right:1px solid #eee; margin-top:0; padding:96px 48px 80px 42px; }
-
-	footer[role="contentinfo"] { bottom:0; width:54.375em; z-index:1; }
-
-	nav {
-		float:right;
-		margin-top:32px;
-		width:190px;
-	}
-
-
-	/* ------- all articles -------- */
-	article {
-		border-top:none;
-		clear:both;
-		margin-top:200px;
-		padding: 1.5em 1.5em 1.5em 144px; /* 24px */ /* 170 or 150 */
-		position:relative;
-	}
-
-	article:first-child { margin-top:0; }
-
-	.one { width:149px; }
-	.one-alt { width:194px; }
-	.two { width:318px; }
-	.three { width:487px; }
-	.four { width:656px; }
-	.journal blockquote, .link blockquote { border-left:8px solid #000; margin: 0 48px 24px 0; padding-left:40px; }
-	.journal p + blockquote, .link p + blockquote { margin-top:1.5em; }
-
-	.journal blockquote p,
-	.journal blockquote li,
-	.link blockquote p,
-	.link blockquote li {
-		color: #666;
-		font-family:#{$proxima-nova};
-	}
-
-	time {
-		font-weight:400;
-		left:21px;
-		margin:0;
-		position:absolute;
-		top:25px;
-		@include transform-origin(top left);
-		@include transform-rotate(90deg);
-	}
-
-	.article-list h2 {
-		margin:0;
-	}
-
-	.article-list time {
-		position:static;
-		@include transform(none);
-	}
-
-	.js article,
-	.js article a,
-	.js time {
-		color:#999;
-	}
-
-	.js .journal blockquote,
-	.js .link blockquote {
-		border-color:#999;
-	}
-
-	.js .journal.active blockquote,
-	.js .link.active blockquote {
-		border-color:#000;
-	}
-	.js .journal.active .note { background:#000; }
-	.js .journal blockquote p, .js .journal blockquote li, .js .link blockquote p, .js .link blockquote li { color: #999; }
-
-	.js .journal.active blockquote p,
-	.js .journal.active blockquote li,
-	.js link.active blockquote p,
-	.js .link.active blockquote li {
-		color: #666;
-	}
-
-	.js .meta { border-color:#999; }
-	.js .active .meta { border-color:#000; }
-
-	.js article img { opacity:.5; }
-	.js article.active img { opacity:1; }
-
-	.meta {
-		border-top:8px solid black;
-		font-size:11px;
-		font-size:.6875rem; /*  11 / 16  */
-		left:0;
-		padding:64px 12px 0;
-		position:absolute;
-		top:0;
-		width:32px;
-	}
-
-	.js article, .js .meta {
-		@include transition(color 0.3s ease-in);
-	}
-
-	.js .meta {
-		@include transition((border-color 0.3s ease-in, background 0.3s ease-in));
-		background-repeat:no-repeat; background-position:100% -60px;
-	}
-
-	.note {
-		background:#999;
-		@include transition(background .15s linear);
-	}
-
-	.note p {
-		color:#fff;
-	}
-
-	.js .journal.active .meta {
-		background-image:url(../images/journal-icon.png);
-		background-position: 100% 21px;
-		border-color:#ff8f52;
-	}
-
-	.js .quote.active .meta {
-		background-image:url(../images/quote-icon.png);
-		background-position: 100% 26px;
-		border-color:#5698ff;
-	}
-	.js .link.active .meta {
-		background-image:url(../images/link-icon.png);
-		background-position: 100% 20px;
-		border-color:#7fd75b;
-	}
-	.js .sketch.active .meta {
-		background-image:url(../images/sketch-icon.png);
-		background-position: 100% 21px;
-		border-color:#fe6a6a;
-	}
-	.js .photo.active .meta {
-		background-image:url(../images/photo-icon.png);
-		background-position: 100% 19px;
-		border-color: #ffed00;
-	}
-
-	/* ------- quote articles -------- */
-	.quote blockquote p {
-		font-size:20px;
-		font-size:1.25rem; /*  20 / 16  */
-		margin:24px 0 18px 0;
-		padding-right:20px;
-		width:444px;
-	}
-
-	/* ------- sketch articles -------- */
-	.sketch img {
-		float:left;
-		margin-right: 32px;
-	}
-}
-
-/* 960px */
-@media only screen and (min-width: 1080px) {
-	.out { margin-left:0; margin-right:-214px; }
-}
->>>>>>> Gridset Beginnings
 
 /**
  * prism.js default theme for JavaScript, CSS and HTML
