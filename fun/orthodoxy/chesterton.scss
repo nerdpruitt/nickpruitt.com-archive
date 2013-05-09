@@ -39,6 +39,12 @@ $base-line-height: 1.5em;
 	}
 }
 
+%cf {
+	clear:both;
+	content:"";
+	display:table;
+}
+
 @mixin box-sizing() {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -60,7 +66,7 @@ body {
 	margin:0 ($base-line-height / 2) ($base-line-height * 4) ($base-line-height / 2);
 	position:relative;
 	max-width:47.619047619em;
-	@include clearfix;
+	@extend %cf;
 }
 
 p.intro::first-line {

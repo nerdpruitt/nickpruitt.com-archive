@@ -1,0 +1,223 @@
+---
+---
+
+$base-font-size:         16;
+$proxima-nova:           proxima-nova, "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+$proxima-nova-condensed: proxima-nova-condensed, "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$ff-tisa:                "ff-tisa-web-pro", Georgia, sans-serif;
+
+$primary-color: #c64227;
+$black: #212420;
+
+//************************************************************************//
+// Example: @include prefixer(border-radius, $radii, webkit ms spec);
+//************************************************************************//
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default; // required for keyframe mixin
+
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+
+    @if $prefix == webkit and $prefix-for-webkit == true {
+      -webkit-#{$property}: $value;
+    }
+    @else if $prefix == moz and $prefix-for-mozilla == true {
+      -moz-#{$property}: $value;
+    }
+    @else if $prefix == ms and $prefix-for-microsoft == true {
+      -ms-#{$property}: $value;
+    }
+    @else if $prefix == o and $prefix-for-opera == true {
+      -o-#{$property}: $value;
+    }
+    @else if $prefix == spec and $prefix-for-spec == true {
+      #{$property}: $value;
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin disable-prefix-for-all() {
+  $prefix-for-webkit:    false;
+  $prefix-for-mozilla:   false;
+  $prefix-for-microsoft: false;
+  $prefix-for-opera:     false;
+  $prefix-for-spec:      false;
+}
+
+@mixin hyphens($hyphen:auto) {
+    @include prefixer(hyphens, $hyphen, webkit moz spec);
+}
+
+@mixin box-sizing ($box: border-box) {
+//  content-box | border-box | inherit
+  @include prefixer(box-sizing, $box, webkit moz spec);
+}
+
+@mixin font-size($font-size) {
+    font-size:$font-size + 0px;
+    font-size:($font-size / $base-font-size) + 0rem;
+}
+
+/* reset
+---------------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+table { border-collapse:collapse; border-spacing:0; }
+
+// make new blocky elements blocky
+article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section { display:block; }
+
+/* global
+---------------------------------------------------------------------- */
+*, :after, :before {
+    @include box-sizing;
+}
+
+body {
+    background:#f8f8f8;
+    color:$black;
+    font: 400 100%/1.5 #{$ff-tisa};
+}
+
+a {
+    color:$primary-color;
+    &:hover {
+        color:lighten($primary-color,16.667%);
+    }
+}
+
+p {
+    @include hyphens;
+    @include font-size(18);
+    line-height:1.5;
+}
+
+p + p {
+    text-indent:1.5em;
+}
+
+h1,h2,h3,h4,h5,h6 { font-family: #{$proxima-nova}; font-weight:700; }
+
+h1 {
+    @include font-size(36);
+    margin-top:64px;
+}
+h2 {
+    @include font-size(21);
+    margin-top:32px;
+}
+
+small {
+  font-family:#{proxima-nova};
+}
+
+.howdy {
+  @include font-size(54);
+  line-height:1;
+}
+
+/* grid
+---------------------------------------------------------------------- */
+.d-all {
+  width:100%;
+}
+.d2 {
+    clear:both;
+    float: left;
+    margin-left: 10%;
+    margin-right: -100%;
+    padding-right:4%;
+    width: 56%;
+}
+
+.d2-d4 {
+    clear:both;
+    width: 80%;
+    margin-left: 10%;
+    float: left;
+    margin-right: -100%;
+    .d2 {
+        width: 70%;
+        float: left;
+        margin-left:0;
+        margin-right: -100%;
+    }
+
+    .d3-d4 {
+      width: 30%;
+      margin-left: 70%;
+      float: left;
+      margin-left:70%;
+      margin-right: -100%;
+    }
+}
+.d3-d4 {
+  width: 24%;
+  margin-left: 66%;
+  float: left;
+  margin-right: -100%;
+  padding-left:4%;
+}
+.d3-d5 {
+  width: 34%;
+  margin-left: 66%;
+  float: left;
+  margin-right: -100%;
+  padding-left:32px;
+  padding-right:4%;
+}
+
+footer[role='contentinfo']{
+  padding-bottom:10%;
+}
+
+/* navigation
+---------------------------------------------------------------------- */
+nav {
+  width:100%;
+    li {
+        float:left;
+        list-style:none;
+        width:24.99%;
+    }
+    a {
+        display:block;
+        font-family:#{proxima-nova};
+    }
+}
+
+/* nerd cred
+---------------------------------------------------------------------- */
+aside {
+  background:darken(#f8f8f8, 4%);
+  font-family:#{proxima-nova};
+  padding-bottom:32px;
+  p, li {
+    @include font-size(16);
+  }
+  h2 {
+    background:$black url(specs.png) no-repeat 97% 8px;
+    color:#fff;
+    @include font-size(14);
+    font-weight:400;
+    letter-spacing:2px;
+    padding:4px 6px 4px 3%;
+    text-transform:uppercase;
+  }
+  h3 {
+    @include font-size(16);
+    margin-top:21px;
+  }
+}
+
+.image {
+  background:$black;
+  margin-bottom:20px;
+  width:100%;
+  height:250px;
+}

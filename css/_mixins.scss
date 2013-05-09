@@ -1,7 +1,7 @@
-@mixin hyphens {
- -webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	     hyphens: auto;
+@mixin hyphens($hyphen:auto) {
+ -webkit-hyphens: $hyphen;
+	-moz-hyphens: $hyphen;
+	     hyphens: $hyphen;
 }
 
 @mixin transform-origin($side) {
@@ -25,7 +25,7 @@
 // Transitions
 @mixin transition($transition) {
 	   -moz-transition: $transition;
-	-webkit-transition: $transition;	   
+	-webkit-transition: $transition;
 	        transition: $transition;
 }
 
@@ -33,4 +33,9 @@
 	   -moz-box-sizing: $box;
 	-webkit-box-sizing: $box;
 	        box-sizing: $box;
+}
+
+@mixin font-size($font-size) {
+	font-size:$font-size + 0px;
+	font-size:($font-size / $base-font-size) + 0rem;
 }

@@ -1,6 +1,6 @@
 module Jekyll
   # Sass plugin to convert .scss to .css
-  # 
+  #
   # Note: This is configured to use the new css like syntax available in sass.
   require 'sass'
   class SassConverter < Converter
@@ -19,7 +19,7 @@ module Jekyll
       begin
         puts "Performing Sass Conversion."
         ## engine = Sass::Engine.new(content, :syntax => :scss, :load_paths => ["./css/"])
-        engine = Sass::Engine.new( content, :syntax => :scss, :load_paths => ["./css/"], :style => :compressed )
+        engine = Sass::Engine.new( content, :syntax => :scss, :load_paths => ["./css/"], :style => :nested )
         engine.render
       rescue StandardError => e
         puts "!!! SASS Error: " + e.message

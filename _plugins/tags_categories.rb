@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby19
 # Thanks to http://recursive-design.com/projects/jekyll-plugins/ for the code off which this is based
 #!/usr/bin/env ruby19
+
 module Jekyll
   class CustomPage < Page
     def initialize(site, base, dir, layout,name='index.html')
@@ -8,12 +9,12 @@ module Jekyll
       @base = base
       @dir  = dir
       @name = name
-      
+
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), layout + '.html')
     end
   end
-  
+
   class Site
     def write_page(page)
       page.render(self.layouts, site_payload)
@@ -22,7 +23,7 @@ module Jekyll
     end
   end
 end
- 
+
 
 module Jekyll
   class Category < CustomPage
@@ -33,14 +34,14 @@ module Jekyll
       self.data['description'] = "#{site.config['category_meta_description_prefix'] || 'Category: '}#{category}"
     end
   end
-  
+
   class Categories < CustomPage
     def initialize(site, base, dir)
       super site, base, dir, 'categories'
       self.data['categories'] = site.categories.keys.sort
     end
   end
-  
+
   class Tag < CustomPage
     def initialize(site, base, dir, tag)
       super site, base, dir, 'tag'
@@ -49,37 +50,36 @@ module Jekyll
       self.data['description'] = "#{site.config['tag_meta_description_prefix'] || 'Tag: '}#{tag}"
     end
   end
-  
+
   class Tags < CustomPage
     def initialize(site, base, dir)
       super site, base, dir, 'tags'
       self.data['tags'] = site.tags.keys.sort
     end
   end
-  
+
   class Site
     # generate_tags_categories is called by the custom process function in site_process.rb
-        
+
     def generate_tags_categories
       throw "No 'category' layout found." unless self.layouts.key? 'category'
       throw "No 'tag' layout found." unless self.layouts.key? 'tag'
-      
+
       # Categories
       dir = self.config['category_dir'] || 'categories'
       write_page Categories.new(self, self.source, dir) if self.layouts.key? 'categories'
-      
+
       self.categories.keys.each do |category|
         write_page Category.new(self, self.source, File.join(dir, category.slugize), category)
       end
-      
+
       # Tags
       dir = self.config['tag_dir'] || 'tags'
       write_page Tags.new(self, self.source, dir) if self.layouts.key? 'tags'
-      
+
       self.tags.keys.each do |tag|
         write_page Tag.new(self, self.source, File.join(dir, tag.slugize), tag)
       end
     end
   end
 end
- 
