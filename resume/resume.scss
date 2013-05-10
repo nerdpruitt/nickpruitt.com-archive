@@ -1,22 +1,29 @@
 ---
 ---
 
+// fonts
 $base-font-size:         16;
 $proxima-nova:           proxima-nova, "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
 $proxima-nova-condensed: proxima-nova-condensed, "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $ff-tisa:                "ff-tisa-web-pro", Georgia, sans-serif;
 
+// colors
 $primary-color: #c64227;
 $black: #212420;
 
-//************************************************************************//
-// Example: @include prefixer(border-radius, $radii, webkit ms spec);
-//************************************************************************//
+// breakpoints
+// originally I had these as rems, but it broke it Mobile Safari, who knew?
+$bp-small         : (300/$base-font-size) + 0em;
+$bp-smallish      : (480/$base-font-size) + 0em;
+$bp-medium        : (590/$base-font-size) + 0em;
+$bp-large         : (700/$base-font-size) + 0em;
+$bp-larger        : (720/$base-font-size) + 0em;
+
 $prefix-for-webkit:    true !default;
 $prefix-for-mozilla:   true !default;
 $prefix-for-microsoft: true !default;
 $prefix-for-opera:     true !default;
-$prefix-for-spec:      true !default; // required for keyframe mixin
+$prefix-for-spec:      true !default;
 
 @mixin prefixer ($property, $value, $prefixes) {
   @each $prefix in $prefixes {
@@ -64,6 +71,52 @@ $prefix-for-spec:      true !default; // required for keyframe mixin
     font-size:($font-size / $base-font-size) + 0rem;
 }
 
+// inspired by http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+// this can also be reconfigured to serve up an IE8 and later only stylesheet, which is cool
+@mixin mq($points, $for-ie8: true, $directions: min, $dimensions: width) {
+  $query: '';
+  @for $i from 1 through length($points) {
+      $query: $query + ' and (#{nth($directions, $i)}-#{nth($dimensions, $i)}: #{nth($points, $i)})';
+  }
+
+  @if $for-ie8 == true {
+      .lte-ie8 & {
+          @content;
+      }
+      @media screen #{$query} {
+        @content;
+      }
+  }
+  @else {
+    @media screen #{$query} {
+      @content;
+    }
+  }
+}
+
+  // Retina images.
+// Use with care - http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
+// -------------------------------------------------------
+
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+%cf {
+  clear:both;
+  content:"";
+  display:table;
+}
+
+
 /* reset
 ---------------------------------------------------------------------- */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
@@ -79,9 +132,10 @@ article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section {
 }
 
 body {
-    background:#f8f8f8;
+    background:#fff;
     color:$black;
     font: 400 100%/1.5 #{$ff-tisa};
+    -webkit-text-size-adjust:none;
 }
 
 a {
@@ -92,47 +146,112 @@ a {
 }
 
 p {
-    @include hyphens;
-    @include font-size(18);
-    line-height:1.5;
+  @include hyphens;
+  @include font-size(18);
+  line-height:1.5;
+
+  + p {
+    text-indent:1.5em;
+  }
+  + h2 {
+    margin-top:32px;
+  }
+
 }
 
-p + p {
-    text-indent:1.5em;
+i {
+  font-style:italic;
 }
 
 h1,h2,h3,h4,h5,h6 { font-family: #{$proxima-nova}; font-weight:700; }
 
 h1 {
     @include font-size(36);
+    line-height:1;
+    margin-bottom:16px;
     margin-top:64px;
 }
+
+.headline {
+  margin-top:0;
+}
+
 h2 {
-    @include font-size(21);
-    margin-top:32px;
+  @include font-size(21);
 }
 
 small {
   font-family:#{proxima-nova};
 }
 
+/* header
+---------------------------------------------------------------------- */
+$bp-nick-max1        : (750/$base-font-size) + 0em;
+$bp-nick-max2        : (760/$base-font-size) + 0em;
+$bp-nick-max3        : (761/$base-font-size) + 0em;
+
 .howdy {
-  @include font-size(54);
-  line-height:1;
+  clear:both;
+  @extend %cf;
+  margin:21px auto 42px;
+  @include mq($bp-nick-max3,true,min,width) {
+    max-width:(710 / 16) + 0em;
+  }
+  @include mq(($bp-small,$bp-nick-max1),false,(min,max),(width,width)) {
+    width:100%;
+  }
+  h1 {
+    @include font-size(72);
+    line-height:1;
+    @include mq($bp-nick-max2,true,min,width) {
+      float:left;
+      width:percentage(500 / 710);
+    }
+    @include mq(($bp-small,$bp-nick-max2),false,(min,max),(width,width)) {
+      margin-bottom:42px;
+      margin-top:0;
+      padding-left:4%;
+      padding-right:4%;
+      width:100%;
+    }
+    @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+      margin-top:46px;
+    }
+  }
+}
+.nick {
+  background: url(nick.png) no-repeat;
+  @include image-2x("nick2x.png", 209px, 470px);
+  height:470px;
+  display:block;
+  width:209px;
+  @include mq($bp-nick-max3,true,min,width) {
+    float:right;
+  }
+  @include mq(($bp-small,$bp-nick-max2),false,(min,max),(width,width)) {
+      clear: both;
+      margin:0 auto;
+      padding-left:20px;
+  }
 }
 
 /* grid
 ---------------------------------------------------------------------- */
-.d-all {
-  width:100%;
-}
 .d2 {
+  @include mq(($bp-small,$bp-large),false,(min,max),(width,width)){
+    clear:both;
+    margin-left:10%;
+    width:80%;
+  }
+
+  @include mq($bp-large,true,min,width) {
     clear:both;
     float: left;
     margin-left: 10%;
     margin-right: -100%;
     padding-right:4%;
     width: 56%;
+  }
 }
 
 .d2-d4 {
@@ -142,13 +261,21 @@ small {
     float: left;
     margin-right: -100%;
     .d2 {
-        width: 70%;
-        float: left;
-        margin-left:0;
-        margin-right: -100%;
+      @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+        width:100%;
+      }
+      width: 70%;
+      float: left;
+      margin-left:0;
+      margin-right: -100%;
     }
 
     .d3-d4 {
+      @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+        clear:both;
+        margin-left:0;
+        width:100%;
+      }
       width: 30%;
       margin-left: 70%;
       float: left;
@@ -164,30 +291,45 @@ small {
   padding-left:4%;
 }
 .d3-d5 {
-  width: 34%;
-  margin-left: 66%;
-  float: left;
-  margin-right: -100%;
-  padding-left:32px;
-  padding-right:4%;
-}
-
-footer[role='contentinfo']{
-  padding-bottom:10%;
+  @include mq(($bp-small,$bp-large),false,(min,max),(width,width)) {
+    clear:both;
+    margin-left:10%;
+    padding:0 0 32px;
+    width:80%;
+  }
+  @include mq($bp-large,true,min,width) {
+    width: 34%;
+    margin-left: 66%;
+    float: left;
+    margin-right: -100%;
+    padding-left:32px;
+    padding-right:4%;
+  }
 }
 
 /* navigation
 ---------------------------------------------------------------------- */
 nav {
+  @extend %cf;
+  margin-bottom:94px;
   width:100%;
     li {
         float:left;
         list-style:none;
+        text-align:center;
         width:24.99%;
+        @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+          text-align:left;
+          width:49.99%;
+        }
     }
     a {
         display:block;
         font-family:#{proxima-nova};
+        padding:18px 0;
+        @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+          padding:9px 0;
+        }
     }
 }
 
@@ -202,22 +344,153 @@ aside {
   }
   h2 {
     background:$black url(specs.png) no-repeat 97% 8px;
+    @include image-2x("specs2x.png", 44px, 13px);
     color:#fff;
     @include font-size(14);
     font-weight:400;
     letter-spacing:2px;
-    padding:4px 6px 4px 3%;
+    margin-top:32px;
+    padding:4px 68px 4px 3%;
     text-transform:uppercase;
+    @include mq(($bp-small,$bp-smallish),false,(min,max),(width,width)) {
+      background-position:97% 17px;
+    }
   }
   h3 {
     @include font-size(16);
     margin-top:21px;
   }
+  p, li, h3 {
+    @include mq(($bp-small,$bp-large),false,(min,max),(width,width)) {
+      margin-left:32px;
+      margin-right:32px;
+    }
+  }
+}
+.inline {
+  @extend %cf;
+  @include mq((890 / $base-font-size) + 0rem, true,min, width) {
+    width:100%;
+    li {
+      float:left;
+      width:50%;
+      &:nth-child(even){
+        list-style-position: inside;
+      }
+    }
+  }
 }
 
-.image {
-  background:$black;
-  margin-bottom:20px;
+/* education
+---------------------------------------------------------------------- */
+.honors {
+  font-family:#{proxima-nova-condensed};
+  @include mq(($bp-small,$bp-larger),false,(min,max),(width,width)) {
+    display:block;
+  }
+}
+
+.degree {
+  + p {
+    text-indent:0;
+  }
+}
+
+/* work experience
+---------------------------------------------------------------------- */
+#work {
+  h2 {
+    display:inline-block;
+    margin-right:9px;
+  }
+}
+.time {
+  display:inline-block;
+  font-family:#{proxima-nova-condensed};
+  @include font-size(18);
+}
+
+/* portfolio
+---------------------------------------------------------------------- */
+.work {
+  // border-top:1px solid $black;
+  @extend %cf;
+  margin-top:32px;
+  padding-top:32px;
   width:100%;
-  height:250px;
+  h2 {
+    margin-top:0;
+  }
+  li {
+    font-family: #{proxima-nova};
+  }
+  h3 {
+    @include mq(($bp-small,$bp-large),false,(min,max),(width,width)) {
+      margin-top:21px;
+    }
+  }
+}
+
+/* contact
+---------------------------------------------------------------------- */
+.adr, .street-address, .url, .tel {
+  display:block;
+}
+#contact {
+  h1 {
+    @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+      padding-top:64px;
+    }
+  }
+}
+
+/* footer
+---------------------------------------------------------------------- */
+footer[role='contentinfo']{
+  @extend %cf;
+  padding-bottom:4%;
+  margin-top:10%;
+}
+
+/* print
+---------------------------------------------------------------------- */
+// lil help from HTML 5 Boilerplate (https://github.com/h5bp/html5-boilerplate)
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .nick, nav {
+      display: none;
+    }
+
+    .d2-d4 {
+      float: none;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
 }

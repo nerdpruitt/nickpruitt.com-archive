@@ -31,14 +31,6 @@ $base-line-height: 1.5em;
 	font-size: ($font-size / $base-font-size) + rem;
 }
 
-@mixin clearfix() {
-	&:after {
-		content:"";
-		display:table;
-		clear:both;
-	}
-}
-
 %cf {
 	clear:both;
 	content:"";
