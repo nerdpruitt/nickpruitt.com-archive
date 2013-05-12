@@ -195,6 +195,7 @@ $bp-nick-max3        : (761/$base-font-size) + 0em;
   @extend %cf;
   margin:21px auto 42px;
   @include mq($bp-nick-max3,true,min,width) {
+    width:(710 / 16) + 0em;
     max-width:(710 / 16) + 0em;
   }
   @include mq(($bp-small,$bp-nick-max1),false,(min,max),(width,width)) {
