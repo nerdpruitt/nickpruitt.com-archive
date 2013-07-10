@@ -1,0 +1,610 @@
+---
+---
+
+@import "mixins";
+
+$base-color: #333;
+
+$base-font-size:         16;
+$proxima-nova:           proxima-nova, "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+$proxima-nova-condensed: proxima-nova-condensed, "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$ff-tisa:                "ff-tisa-web-pro", Georgia, sans-serif;
+
+
+
+/* i.RESET
+---------------------------------------------------------------------- */
+// http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain)
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+table { border-collapse:collapse; border-spacing:0; }
+
+// make new blocky elements blocky
+article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section { display:block; }
+
+
+
+/* global
+---------------------------------------------------------------------- */
+
+body{
+	background:#f8f8f8;
+	color:$base-color;
+	font: 400 100%/1.5 #{$ff-tisa};
+	/* I like to line stuff up sometimes */
+	// background: url(../grid.png) repeat-y 42px 0;
+	// background:url(../images/large-monitor.png) no-repeat 1500px 360px;
+}
+
+
+
+/* headings
+---------------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { font-family: #{$proxima-nova}; }
+
+h1 {
+	@include font-size(36);
+	font-weight:700;
+	line-height:(36 / 36);
+	margin-bottom:24px;
+	text-rendering: optimizeLegibility;
+}
+
+h1, h2 {
+	a {
+		text-decoration:none;
+	}
+}
+
+.article-list h2 {
+	font-weight:700;
+}
+
+h2 {
+	@include font-size(21);
+	margin-top:32px;
+}
+
+.filed {
+	border-top:1px solid #ccc;
+	color:#999;
+	font-family:#{$proxima-nova};
+	@include font-size(11);
+	font-weight:700;
+	letter-spacing:1px;
+	margin-top:48px;
+	padding-top:12px;
+	text-transform:uppercase;
+}
+
+em {
+	font-style:italic;
+}
+
+
+
+/* typography
+---------------------------------------------------------------------- */
+
+p {
+	line-height:1.5; /* 24 / 16 */
+}
+
+p + p, .note + p {
+	text-indent:1.5em;
+}
+
+.journal, .blockquote {
+	p {
+		@include hyphens;
+	}
+}
+
+a {
+	color:#000;
+	&:hover {
+		background:#000;
+		color:#fff;
+	}
+}
+
+ul li { list-style:disc; }
+
+ol li { list-style:decimal; }
+
+.tags {
+	li {
+		float:left;
+		font-family:#{$proxima-nova};
+		@include font-size(11);
+		list-style:none;
+		margin-right:7px;
+	}
+	a {
+		padding:0 2px;
+		text-decoration:none;
+		&:hover {
+			background:#000;
+			color:#fff;
+		}
+	}
+}
+
+time {
+	color:#666;
+	display:block;
+	font-family:#{$proxima-nova-condensed};
+	@include font-size(18);
+	font-weight:200;
+	letter-spacing:1px;
+}
+
+cite { font-style:italic; }
+
+.note {
+	@include box-sizing;
+	margin-bottom:12px;
+	margin-top:12px;
+	padding:12px;
+	p {
+		color:#999;
+		font-family:#{$proxima-nova};
+		@include font-size(14);
+	}
+}
+
+header[role="banner"], footer[role="contentinfo"] {
+	p {
+		color:#fff;
+		float:left;
+		font-family: #{$proxima-nova};
+		@include font-size(18);
+		margin:32px 20px;
+	}
+}
+
+footer[role="contentinfo"] {
+	a {
+		color:#fff;
+		&:hover {
+			background:#fff;
+			color:#000;
+		}
+	}
+}
+
+.quote .source a {
+	font-family:#{$proxima-nova};
+	@include font-size(18);
+	text-decoration:none;
+	white-space:nowrap;
+}
+
+
+
+/* navigation
+---------------------------------------------------------------------- */
+nav li {
+	list-style:none;
+}
+
+nav a, .pagination {
+	color:#fff;
+	font-family:#{$proxima-nova};
+	@include font-size(14);
+	font-weight:700;
+	letter-spacing:1px;
+	padding: 3px 5px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+nav a:hover { background-color:#000; color: #fff; }
+
+.pagination {
+	color:#000;
+	float:left;
+	margin:75px 36px 0 0;
+}
+
+
+
+/* layout
+---------------------------------------------------------------------- */
+
+div[role="main"], footer[role="contentinfo"] {
+	background-color:#fff;
+	padding:24px;
+	position:relative;
+	z-index:2;
+}
+
+.wrap {
+	min-height:140px;
+	position:relative;
+}
+
+article { padding: 24px 0;}
+
+header[role="banner"],
+footer[role="contentinfo"] {
+	background-color:#000;
+}
+
+.meta {
+	margin-bottom:4px;
+}
+
+img {
+	max-width:100%;
+}
+
+.js article.active {
+	color:#000;
+	a {
+		color:#000;
+		&:hover {
+			background:#000;
+			color:#fff;
+		}
+	}
+	time {
+		color: #333;
+	}
+}
+
+
+
+/* helpers
+---------------------------------------------------------------------- */
+// clearfix
+// http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+.group:after {
+	clear:both;
+	content:"";
+    display:table;
+}
+
+
+
+/* media queries
+---------------------------------------------------------------------- */
+
+/* 540px */
+@media only screen and (min-width: 540px) {
+	.note {
+		float:right;
+		margin-left:20px;
+	}
+	.one, .one-alt, .two, .three, .four {
+		width: 194px;
+	}
+}
+
+/* 820px */
+@media only screen and (min-width: 820px) {
+
+	div[role="main"], header[role="banner"], footer[role="contentinfo"], .wrap {
+		@include box-sizing;
+		margin:0;
+		padding-right:48px;
+		max-width:54.375em; /* 870px / 16 */
+	}
+
+	.wrap { margin-bottom:0; padding:0; }
+
+	header[role="banner"], footer[role="contentinfo"] {
+		padding-left:42px;
+	}
+
+	header[role="banner"] {
+		position:fixed;
+	}
+
+	header[role="banner"], footer[role="contentinfo"] {
+		p {
+			float:left;
+			margin-left:24px;
+			margin-top:32px;
+			width:71.7241379%;
+		}
+	}
+
+	div[role="main"] {
+		border-right:1px solid #eee;
+		margin-top:0;
+		padding:96px 48px 80px 42px;
+	}
+
+	footer[role="contentinfo"] {
+		bottom:0;
+		width:54.375em;
+		z-index:1;
+	}
+
+	nav {
+		float:right;
+		margin-top:32px;
+		width:190px;
+	}
+
+
+	/* ------- all articles -------- */
+	article {
+		border-top:none;
+		clear:both;
+		margin-top:200px;
+		padding: 1.5em 1.5em 1.5em 144px; /* 24px */ /* 170 or 150 */
+		position:relative;
+		&:first-child {
+			margin-top:0;
+		}
+	}
+
+
+	.one { width:149px; }
+	.one-alt { width:194px; }
+	.two { width:318px; }
+	.three { width:487px; }
+	.four { width:656px; }
+
+	.journal, .link {
+		blockquote {
+			border-left:8px solid #000;
+			margin: 0 48px 24px 0;
+			padding-left:40px;
+			p, li {
+				color: #666;
+				font-family:#{$proxima-nova};
+			}
+		}
+		p + blockquote {
+			margin-top:1.5em;
+		}
+	}
+
+	time {
+		font-weight:400;
+		left:21px;
+		margin:0;
+		position:absolute;
+		top:25px;
+		@include transform-origin(top left);
+		@include transform-rotate(90deg);
+	}
+
+	.article-list {
+		h2 {
+			margin:0;
+		}
+		time {
+			position:static;
+			@include transform(none);
+		}
+	}
+
+	.js {
+		article,
+		article a,
+		time {
+			color:#999;
+		}
+	}
+
+	.js .journal, .js .link {
+		 blockquote {
+			border-color:#999;
+		}
+	}
+
+	.js .journal.active,
+	.js .link.active {
+		blockquote {
+			border-color:#000;
+		}
+	}
+	.js .journal.active .note {
+		background:#000;
+	}
+
+	.js .journal, .js .link {
+		blockquote p,
+		blockquote li {
+			color: #999;
+		}
+	}
+
+	.js .journal.active, .js .link.active {
+		blockquote p,
+		blockquote li {
+			color: #666;
+		}
+	}
+
+	.js .meta { border-color:#999; }
+	.js .active .meta { border-color:#000; }
+
+	.js article img { opacity:.5; }
+	.js article.active img { opacity:1; }
+
+	.meta {
+		border-top:8px solid black;
+		@include font-size(11);
+		left:0;
+		padding:64px 12px 0;
+		position:absolute;
+		top:0;
+		width:32px;
+	}
+
+	.js article, .js .meta {
+		@include transition(color 0.3s ease-in);
+	}
+
+	.js .meta {
+		@include transition((border-color 0.3s ease-in, background 0.3s ease-in));
+		background-repeat:no-repeat;
+		background-position:100% -60px;
+	}
+
+	.note {
+		background:#999;
+		@include transition(background .15s linear);
+		p {
+			color:#fff;
+		}
+	}
+
+	.js .journal.active .meta {
+		background-image:url(../images/journal-icon.png);
+		background-position: 100% 21px;
+		border-color:#ff8f52;
+	}
+
+	.js .quote.active .meta {
+		background-image:url(../images/quote-icon.png);
+		background-position: 100% 26px;
+		border-color:#5698ff;
+	}
+	.js .link.active .meta {
+		background-image:url(../images/link-icon.png);
+		background-position: 100% 20px;
+		border-color:#7fd75b;
+	}
+	.js .sketch.active .meta {
+		background-image:url(../images/sketch-icon.png);
+		background-position: 100% 21px;
+		border-color:#fe6a6a;
+	}
+	.js .photo.active .meta {
+		background-image:url(../images/photo-icon.png);
+		background-position: 100% 19px;
+		border-color: #ffed00;
+	}
+
+	/* ------- quote articles -------- */
+	.quote blockquote p {
+		@include font-size(20);
+		margin:24px 0 18px 0;
+		padding-right:20px;
+		width:444px;
+	}
+
+	/* ------- sketch articles -------- */
+	.sketch img {
+		float:left;
+		margin-right: 32px;
+	}
+}
+
+/* 1080px */
+@media only screen and (min-width: 1080px) {
+	.out {
+		margin-left:0;
+		margin-right:-214px;
+	}
+}
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	direction: ltr;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	@include hyphens(none);
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	text-align: left;
+	text-shadow: 0 1px white;
+	white-space: pre;
+	word-spacing: normal;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	margin: .5em 0;
+	overflow: auto;
+	padding: 1em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	border-radius: .3em;
+	padding: .1em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	background: hsla(0,0%,100%,.5);
+	color: #a67f59;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+
+.token.regex,
+.token.important {
+	color: #e90;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	cursor: help;
+}
