@@ -1,7 +1,53 @@
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default;
+
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+
+    @if $prefix == webkit and $prefix-for-webkit == true {
+      -webkit-#{$property}: $value;
+    }
+    @else if $prefix == moz and $prefix-for-mozilla == true {
+      -moz-#{$property}: $value;
+    }
+    @else if $prefix == ms and $prefix-for-microsoft == true {
+      -ms-#{$property}: $value;
+    }
+    @else if $prefix == o and $prefix-for-opera == true {
+      -o-#{$property}: $value;
+    }
+    @else if $prefix == spec and $prefix-for-spec == true {
+      #{$property}: $value;
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin disable-prefix-for-all() {
+  $prefix-for-webkit:    false;
+  $prefix-for-mozilla:   false;
+  $prefix-for-microsoft: false;
+  $prefix-for-opera:     false;
+  $prefix-for-spec:      false;
+}
+
 @mixin hyphens($hyphen:auto) {
- -webkit-hyphens: $hyphen;
-	-moz-hyphens: $hyphen;
-	     hyphens: $hyphen;
+    @include prefixer(hyphens, $hyphen, webkit moz spec);
+}
+
+@mixin box-sizing ($box: border-box) {
+//  content-box | border-box | inherit
+  @include prefixer(box-sizing, $box, webkit moz spec);
+}
+
+@mixin font-size($font-size) {
+    font-size:$font-size + 0px;
+    font-size:($font-size / $base-font-size) + 0rem;
 }
 
 @mixin transform-origin($side) {
@@ -29,13 +75,73 @@
 	        transition: $transition;
 }
 
-@mixin box-sizing($box: border-box) {
-	   -moz-box-sizing: $box;
-	-webkit-box-sizing: $box;
-	        box-sizing: $box;
+
+// inspired by http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+// this can also be reconfigured to serve up an IE8 and later only stylesheet, which is cool
+@mixin mq($points, $for-ie8: true, $directions: min, $dimensions: width) {
+  $query: '';
+  @for $i from 1 through length($points) {
+      $query: $query + ' and (#{nth($directions, $i)}-#{nth($dimensions, $i)}: #{nth($points, $i)})';
+  }
+
+  @if $for-ie8 == true {
+      .lte-ie8 & {
+          @content;
+      }
+      @media screen #{$query} {
+        @content;
+      }
+  }
+  @else {
+    @media screen #{$query} {
+      @content;
+    }
+  }
 }
 
-@mixin font-size($font-size) {
-	font-size:$font-size + 0px;
-	font-size:($font-size / $base-font-size) + 0rem;
+
+@mixin remify($property, $value) {
+	$valuerel: '';
+	$valueabs: '';
+	@for $i from 1 through length($value) {
+		$valuerel: $valuerel + #{nth($value, $i)};
+		$valueabs: $valueabs + #{nth($value, $i)};
+	}
+    $property: $valueabs;
+    $property: $valuerel;
+}
+
+
+// Functions for pixel conversions
+// ------------------------------------------------------------
+
+$relative-sizing			: true !default; // Set to false if you want to use absolute pixels in your dimensions
+$relative-sizing-unit		: 1rem !default; // This needs the one in front of it to convert variables to numbers
+$absolute-sizing-unit		: 1px !default; // This needs the one in front of it to convert variables to numbers
+$base-font-size				: 16 !default;
+
+// Make px to rems using base-font-size
+// echo as: font-size: rel(#px);
+// if the base is another value, say 24px, write rel(12, 24)
+
+@function rel($target, $context: $base-font-size) {
+	@if strip-units($target) == 0 { @return 0 }
+	@else if not $relative-sizing { @return (round(strip-units($target))) * $absolute-sizing-unit }
+	@else { @return (strip-units($target) / strip-units($context)) * $relative-sizing-unit }
+}
+
+
+// Make px to % using 960px;
+// echo as: font-size: percent(10);
+// if the base is another value, say 16px, write percent(10, 16)
+
+@function percent($target, $context: 960) {
+	@if strip-units($target) == 0 { @return 0 }
+	@return (strip-units($target) / strip-units($context)) * 100%;
+}
+
+
+// to remove the unit from the numbers that are passed
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
 }

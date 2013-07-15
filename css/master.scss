@@ -3,12 +3,34 @@
 
 @import "mixins";
 
-$base-color: #333;
+$primary-color : #c64227;
+$black         : #212420;
+
+$journal       : #FF9C3F;
+$quote         : #458DFF;
+$link          : #7fd75b;
+$sketch        : #FE3C55;
+$photo         : #FFED3E;
+
+$base-color: $black;
 
 $base-font-size:         16;
+$vertical-rhythm:        24;
 $proxima-nova:           proxima-nova, "HelveticaNeue", "Helvetica Neue", helvetica, arial, sans-serif;
 $proxima-nova-condensed: proxima-nova-condensed, "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $ff-tisa:                "ff-tisa-web-pro", Georgia, sans-serif;
+
+// breakpoints
+// originally I had these as rems, but it broke it Mobile Safari, who knew?
+$bp-small         : (300/$base-font-size) + 0em;
+$bp-smallish      : (480/$base-font-size) + 0em;
+$bp-medium        : (590/$base-font-size) + 0em;
+$bp-large         : (700/$base-font-size) + 0em;
+$bp-larger        : (720/$base-font-size) + 0em;
+
+
+
+@import "mixins";
 
 
 
@@ -28,28 +50,26 @@ article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section {
 ---------------------------------------------------------------------- */
 
 body {
-	background:#f8f8f8;
+	background:#fff;
 	color:$base-color;
 	font: 400 100%/1.5 #{$ff-tisa};
 }
 
-/* headings
+
+
+/* typography
 ---------------------------------------------------------------------- */
 
-h1,h2,h3,h4,h5,h6 { font-family: #{$proxima-nova}; }
+h1,h2,h3,h4,h5,h6 {
+	font-family: #{$proxima-nova};
+	font-weight:700;
+}
 
 h1 {
 	@include font-size(36);
-	font-weight:700;
 	line-height:(36 / 36);
-	margin-bottom:24px;
+	margin-bottom:rel($vertical-rhythm / 2);
 	text-rendering: optimizeLegibility;
-}
-
-h1, h2 {
-	a {
-		text-decoration:none;
-	}
 }
 
 .article-list h2 {
@@ -77,16 +97,20 @@ em {
 	font-style:italic;
 }
 
-
-
-/* typography
----------------------------------------------------------------------- */
-
 p {
-	line-height:1.5; /* 24 / 16 */
+  @include hyphens;
+  @include font-size(18);
+
+  + p {
+    text-indent:1.5em;
+  }
+  + h2 {
+    margin-top:32px;
+  }
+
 }
 
-p + p, .note + p {
+.note + p {
 	text-indent:1.5em;
 }
 
@@ -96,13 +120,22 @@ p + p, .note + p {
 	}
 }
 
-a {
-	color:#000;
-	&:hover {
-		background:#000;
-		color:#fff;
-	}
-}
+// a {
+// 	color:$primary-color;
+// 	&:hover {
+// 	    color:lighten($primary-color,16.667%);
+// 	}
+// }
+
+// h1, h2 {
+// 	a {
+// 		color:$black;
+// 		text-decoration:none;
+// 		&:hover {
+// 			color:$primary-color;
+// 		}
+// 	}
+// }
 
 ul li { list-style:disc; }
 
@@ -120,7 +153,7 @@ ol li { list-style:decimal; }
 		padding:0 2px;
 		text-decoration:none;
 		&:hover {
-			background:#000;
+			background:$primary-color;
 			color:#fff;
 		}
 	}
@@ -137,35 +170,11 @@ time {
 
 cite { font-style:italic; }
 
-.note {
-	@include box-sizing;
-	margin-bottom:12px;
-	margin-top:12px;
-	padding:12px;
-	p {
-		color:#999;
-		font-family:#{$proxima-nova};
-		@include font-size(14);
-	}
-}
-
 header[role="banner"], footer[role="contentinfo"] {
 	p {
-		// color:#fff;
-		// float:left;
 		font-family: #{$proxima-nova};
 		@include font-size(18);
 		margin:32px 20px;
-	}
-}
-
-footer[role="contentinfo"] {
-	a {
-		// color:#fff;
-		&:hover {
-			background:#fff;
-			color:#000;
-		}
 	}
 }
 
@@ -175,3 +184,156 @@ footer[role="contentinfo"] {
 	text-decoration:none;
 	white-space:nowrap;
 }
+
+
+.journal {
+	border-top: 12px solid $journal;
+	a {
+		color: $journal;
+		&:hover {
+		    color:darken($journal,16.667%);
+		}
+	}
+}
+.quote {
+	border-top: 12px solid $quote;
+	a {
+		color: $quote;
+		&:hover {
+		    color:darken($quote,16.667%);
+		}
+	}
+}
+.link {
+	border-top: 12px solid $link;
+	a {
+		color: $link;
+		&:hover {
+		    color:darken($link,16.667%);
+		}
+	}
+}
+.sketch {
+	border-top: 12px solid $sketch;
+	a {
+		color: $sketch;
+		&:hover {
+		    color:darken($sketch,16.667%);
+		}
+	}
+}
+.photo {
+	border-top: 12px solid $photo;
+	a {
+		color: $photo;
+		&:hover {
+		    color:darken($photo,16.667%);
+		}
+	}
+}
+
+article {
+	margin: rel($vertical-rhythm * 3) 0;
+}
+
+
+/* grid
+---------------------------------------------------------------------- */
+.d2 {
+  @include mq(($bp-small,$bp-large),false,(min,max),(width,width)){
+    clear:both;
+    margin-left:10%;
+    width:80%;
+  }
+
+  @include mq($bp-large,true,min,width) {
+    clear:both;
+    float: left;
+    margin-left: 10%;
+    margin-right: -100%;
+    padding-right:4%;
+    width: 56%;
+  }
+}
+
+.d2-d4 {
+    clear:both;
+    width: 80%;
+    margin-left: 10%;
+    float: left;
+    margin-right: -100%;
+    .d2 {
+      @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+        width:100%;
+      }
+      width: 70%;
+      float: left;
+      margin-left:0;
+      margin-right: -100%;
+    }
+
+    .d3-d4 {
+      @include mq(($bp-small,$bp-medium),false,(min,max),(width,width)) {
+        clear:both;
+        margin-left:0;
+        width:100%;
+      }
+      width: 30%;
+      margin-left: 70%;
+      float: left;
+      margin-left:70%;
+      margin-right: -100%;
+    }
+}
+.d3-d4 {
+  width: 24%;
+  margin-left: 66%;
+  float: left;
+  margin-right: -100%;
+  padding-left:4%;
+}
+.d3-d5 {
+  @include mq(($bp-small,$bp-large),false,(min,max),(width,width)) {
+    clear:both;
+    margin-left:10%;
+    padding:0 0 32px;
+    width:80%;
+  }
+  @include mq($bp-large,true,min,width) {
+    width: 34%;
+    margin-left: 66%;
+    float: left;
+    margin-right: -100%;
+    padding-left:32px;
+    padding-right:4%;
+  }
+}
+
+// modules
+// ----------------------------------------------------------------------
+.note {
+	background:$black;
+	@include box-sizing;
+	margin-bottom:24px;
+	margin-top:24px;
+	padding:12px;
+	p {
+		color:#efefef;
+		font-family:#{$proxima-nova};
+		@include font-size(14);
+	}
+	&.d3-d5 {
+		float:right;
+		margin-left:0;
+		margin-right:-60.7142857%; // 34 / 56
+		width: 56.7142857%; // (34 / 56) - 4
+	}
+	&.alt {
+		float:left;
+		margin-left:-17.8571429%; // 10 / 56
+		margin-right:$vertical-rhythm + 0px;
+	}
+}
+
+
+@import "prism";

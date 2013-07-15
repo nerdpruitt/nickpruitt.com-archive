@@ -15,7 +15,7 @@ In the end we are really pleased with the results. Here is the <a href="/work/re
 
 The main question I had going into this project was, "How will I do this without floats?" Floats come in handy when you're building responsively, following the pattern of starting with stacked elements in the narrow, mobile context, and then floating them as you have more screen real estate and having them appear all nice and side-by-side. But CSS support for floats is fairly abysmal in the clients we chose to support, leaving us with the question of just what to do.
 
-<div class="note out one-alt">
+<div class="note out one-alt d3-d5">
     <p>Yeah, I know that's a gross simplification of responsive design. That layout is only one component of it. That it's not all not stacking and unstacking stuff. Even that it's not solely about hitting certain viewports because you just make a bunch of fixed width layouts. I get it.</p>
 
     <p>Basically, this all depends on the design, and for the design of this particular email, going to Stacksville is the right thing to do. So there.</p>
